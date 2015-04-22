@@ -37,3 +37,6 @@ api/modules
 api/profiles
 api/scripts
 api/themes
+
+# Ignore node modules
+front_end/node_modules*
