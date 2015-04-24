@@ -27,4 +27,4 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('assets/styles/css'));
 });
 
-gulp.task('default', ['lint']);
+gulp.task('default', ['lint', 'sass']);
