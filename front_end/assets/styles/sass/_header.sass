@@ -1,6 +1,16 @@
+@import 'mixins'
+
 header
   background-color: green
   height: 400px
 
 .profile-pic
   float: left
+  @extend %vertical-align
+
+.blurb
+  border:
+    color: white
+    width: 6px
+    style: dashed
+  @extend %vertical-align
