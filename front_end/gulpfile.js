@@ -8,7 +8,7 @@ var jslint = require('gulp-jslint'),
 
 // Lint our javascript.
 gulp.task('lint', function () {
-    return gulp.src(['app/app.js'])
+    return gulp.src(['app/**/*.js',])
         .pipe(jslint({
             brower: true,
             maxlen: 80,
@@ -16,7 +16,7 @@ gulp.task('lint', function () {
             errorsOnly: false
         }))
         .on('error', function (error) {
-            console.error(String(error));
+            console.log(String(error));
         });
 });
 
