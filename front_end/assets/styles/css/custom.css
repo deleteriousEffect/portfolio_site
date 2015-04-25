@@ -1,2 +1,17 @@
-h1 {
-  color: red; }
+header {
+  background-color: green;
+  height: 400px; }
+
+.profile-pic {
+  float: left; }
+
+.card {
+  border-color: gray;
+  border-width: 2px;
+  border-style: dashed;
+  margin-top: 25px;
+  margin-bottom: 25px; }
+
+footer {
+  background-color: green;
+  height: 400px; }
