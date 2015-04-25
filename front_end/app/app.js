@@ -5,7 +5,8 @@
     angular.module('portfolio', [
         'headerDirective',
         'footerDirective',
-        'cardDirective'
+        'cardDirective',
+        'navbarDirective'
     ]);
 }());
 
