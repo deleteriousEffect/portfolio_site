@@ -27,4 +27,10 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('assets/styles/css'));
 });
 
-gulp.task('default', ['lint', 'sass']);
+// Watch for changes.
+gulp.task('watch', function () {
+    gulp.watch('app/**/*.js', ['lint']);
+    gulp.watch('assets/styles/sass/*.sass', ['sass']);
+});
+
+gulp.task('default', ['lint', 'sass', 'watch']);
