@@ -8,7 +8,7 @@ var jslint = require('gulp-jslint'),
 
 // Lint our javascript.
 gulp.task('lint', function () {
-    return gulp.src(['app/**/*.js',])
+    return gulp.src(['app/**/*.js'])
         .pipe(jslint({
             brower: true,
             maxlen: 80,
@@ -20,6 +20,13 @@ gulp.task('lint', function () {
         });
 });
 
+//Concatenate Angular files.
+gulp.task('angular', function () {
+    return gulp.src('app/**/*.js')
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest('app'));
+});
+
 // Compile sass files.
 gulp.task('sass', function () {
     return gulp.src('assets/styles/sass/custom.sass')
@@ -29,7 +36,7 @@ gulp.task('sass', function () {
 
 // Watch for changes.
 gulp.task('watch', function () {
-    gulp.watch('app/**/*.js', ['lint']);
+    gulp.watch('app/**/*.js', ['lint', 'angular']);
     gulp.watch('assets/styles/sass/*.sass', ['sass']);
 });
 

@@ -1,9 +1,11 @@
 /*global angular*/
-angular.module('headerDirective', []).
-    directive('portfolioHeader', function () {
-        'use strict';
-        return {
-            restrict: 'E',
-            templateUrl: 'app/components/header/headerView.html'
-        };
-    });
+(function () {
+    'use strict';
+    angular.module('headerDirective', []).
+        directive('portfolioHeader', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/header/headerView.html'
+            };
+        });
+}());

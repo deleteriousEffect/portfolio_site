@@ -1,9 +1,11 @@
 /*global angular*/
-angular.module('navbarDirective', []).
-    directive('portfolioNavbar', function () {
-        'use strict';
-        return {
-            restrict: 'E',
-            templateUrl: 'app/components/navbar/navbarView.html'
-        };
-    });
+(function () {
+    'use strict';
+    angular.module('navbarDirective', []).
+        directive('portfolioNavbar', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/navbar/navbarView.html'
+            };
+        });
+}());
