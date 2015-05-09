@@ -70,6 +70,13 @@ gulp.task('minHTML', function() {
     .pipe(gulp.dest('dist'));
 });
 
+// Minify views.
+gulp.task('minViews', function() {
+    return gulp.src('app/**/*.html')
+    .pipe(minifyHTML())
+    .pipe(gulp.dest('dist/app'));
+});
+
 // Run test runner.
 gulp.task('test', function() {
     return gulp.src('test/*.js')
