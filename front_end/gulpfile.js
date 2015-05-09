@@ -56,6 +56,7 @@ gulp.task('ngmin', function () {
     return gulp.src('app/app.js')
     .pipe(ngmin())
     .pipe(uglify({mangle: false}))
+    .pipe(rename({extname: '.min.js'}))
     .pipe(gulp.dest('dist'));
 });
 
