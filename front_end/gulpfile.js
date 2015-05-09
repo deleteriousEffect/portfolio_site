@@ -7,6 +7,7 @@ var jslint = require('gulp-jslint'),
     karma = require('gulp-karma'),
     uncss = require('gulp-uncss'),
     minifyCss = require('gulp-minify-css'),
+    ngmin = require('gulp-ngmin'),
     rename = require('gulp-rename');
 
 // Lint our javascript.
@@ -47,6 +48,14 @@ gulp.task('uncss', function () {
     .pipe(minifyCss({
                    keepSpecialComments: 0
                   }))
+    .pipe(gulp.dest('dist'));
+});
+
+// Minify Angular souce.
+gulp.task('ngmin', function () {
+    return gulp.src('app/app.js')
+    .pipe(ngmin())
+    .pipe(uglify({mangle: false}))
     .pipe(gulp.dest('dist'));
 });
 
