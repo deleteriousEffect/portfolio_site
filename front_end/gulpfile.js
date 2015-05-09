@@ -9,6 +9,7 @@ var jslint = require('gulp-jslint'),
     minifyCss = require('gulp-minify-css'),
     ngmin = require('gulp-ngmin'),
     minifyHTML = require('gulp-minify-html'),
+    replace = require('gulp-replace'),
     rename = require('gulp-rename');
 
 // Lint our javascript.
@@ -64,6 +65,7 @@ gulp.task('ngmin', function () {
 // Minify HTML.
 gulp.task('minHTML', function() {
     return gulp.src('index.html')
+    .pipe(replace('app.js', 'app.min.js'))
     .pipe(minifyHTML())
     .pipe(gulp.dest('dist'));
 });
