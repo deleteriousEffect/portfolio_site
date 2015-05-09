@@ -8,6 +8,7 @@ var jslint = require('gulp-jslint'),
     uncss = require('gulp-uncss'),
     minifyCss = require('gulp-minify-css'),
     ngmin = require('gulp-ngmin'),
+    minifyHTML = require('gulp-minify-html'),
     rename = require('gulp-rename');
 
 // Lint our javascript.
@@ -57,6 +58,13 @@ gulp.task('ngmin', function () {
     .pipe(ngmin())
     .pipe(uglify({mangle: false}))
     .pipe(rename({extname: '.min.js'}))
+    .pipe(gulp.dest('dist/app'));
+});
+
+// Minify HTML.
+gulp.task('minHTML', function() {
+    return gulp.src('index.html')
+    .pipe(minifyHTML())
     .pipe(gulp.dest('dist'));
 });
 
