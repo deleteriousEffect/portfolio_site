@@ -44,7 +44,9 @@ gulp.task('uncss', function () {
     .pipe(uncss({
         html: ['app/**/*.html']
     }))
-    .pipe(minifyCss())
+    .pipe(minifyCss({
+                   keepSpecialComments: 0
+                  }))
     .pipe(gulp.dest('dist'));
 });
 
