@@ -4,6 +4,9 @@ var jslint = require('gulp-jslint'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    karma = require('gulp-karma'),
+    uncss = require('gulp-uncss'),
+    minifyCss = require('gulp-minify-css'),
     rename = require('gulp-rename');
 
 // Lint our javascript.
@@ -33,6 +36,30 @@ gulp.task('sass', function () {
         .pipe(sass({indentedSyntax: true}))
         .pipe(gulp.dest('assets/styles/css'));
 });
+
+// Remove Unused CSS and minify.
+gulp.task('uncss', function () {
+    return gulp.src(['assets/styles/css/custom.css', 'node_modules/bootstrap/dist/css/bootstrap.min.css'])
+    .pipe(concat('main.min.css'))
+    .pipe(uncss({
+        html: ['app/**/*.html']
+    }))
+    .pipe(minifyCss())
+    .pipe(gulp.dest('dist'));
+});
+
+// Run test runner.
+gulp.task('test', function() {
+    return gulp.src('test/*.js')
+    .pipe(karma({
+        configFile: 'karma.conf.js',
+        action: 'run'
+    }))
+    .on('error', function (err) {
+        console.log(err);
+    });
+});
+
 
 // Watch for changes.
 gulp.task('watch', function () {

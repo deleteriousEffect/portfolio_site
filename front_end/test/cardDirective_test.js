@@ -1,5 +1,5 @@
 
-describe('headerDirective', function () {
+describe('cardDirective', function () {
 
     beforeEach(module('cardDirective'));
     beforeEach(module('app/shared/cards/cardView.html'));
