@@ -42,7 +42,7 @@ gulp.task('sass', function () {
 
 // Remove Unused CSS and minify.
 gulp.task('uncss', function () {
-    return gulp.src(['assets/styles/css/custom.css', 'node_modules/bootstrap/dist/css/bootstrap.min.css'])
+    return gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css', 'assets/styles/css/custom.css'])
     .pipe(concat('main.min.css'))
     .pipe(uncss({
         html: ['app/**/*.html']
