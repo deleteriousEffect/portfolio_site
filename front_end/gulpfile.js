@@ -44,13 +44,13 @@ gulp.task('sass', function () {
 gulp.task('uncss', function () {
     return gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css', 'assets/styles/css/custom.css'])
     .pipe(concat('main.min.css'))
+    .pipe(minifyCss({
+                  keepSpecialComments: 0
+                 }))
     .pipe(uncss({
         html: ['app/**/*.html'],
         ignore: ['.clearfix']
     }))
-    .pipe(minifyCss({
-                   keepSpecialComments: 0
-                  }))
     .pipe(gulp.dest('dist'));
 });
 
