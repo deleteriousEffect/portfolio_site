@@ -45,7 +45,8 @@ gulp.task('uncss', function () {
     return gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css', 'assets/styles/css/custom.css'])
     .pipe(concat('main.min.css'))
     .pipe(uncss({
-        html: ['app/**/*.html']
+        html: ['app/**/*.html'],
+        ignore: ['.clearfix']
     }))
     .pipe(minifyCss({
                    keepSpecialComments: 0
