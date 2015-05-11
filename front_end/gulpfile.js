@@ -66,7 +66,7 @@ gulp.task('ngmin', function () {
 // Minify HTML.
 gulp.task('minHTML', function() {
     return gulp.src('index.html')
-    .pipe(replace('app.js', 'app.min.js'))
+    .pipe(replace('.js', '.min.js'))
     .pipe(replace('<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">', ''))
     .pipe(replace('assets/styles/css/custom.css', 'main.min.css'))
     .pipe(minifyHTML())
