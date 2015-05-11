@@ -95,8 +95,11 @@ gulp.task('test', function() {
 
 // Watch for changes.
 gulp.task('watch', function () {
-    gulp.watch('app/**/*.js', ['lint', 'angular']);
+    gulp.watch('app/**/*.js', ['lint', 'angular', 'ngmin']);
     gulp.watch('assets/styles/sass/*.sass', ['sass']);
+    gulp.watch('assets/styles/css/*.css', ['uncss']);
+    gulp.watch('index.html', ['minHTML']);
+    gulp.watch('app/**/*.html', ['minViews']);
 });
 
-gulp.task('default', ['lint', 'sass', 'watch']);
+gulp.task('default', ['lint', 'sass', 'angular', 'ngmin', 'uncss', 'minHTML', 'minViews', 'watch']);
