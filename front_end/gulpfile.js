@@ -94,7 +94,7 @@ gulp.task('test', function() {
 
 // Watch for changes.
 gulp.task('watch', function () {
-    gulp.watch('app/**/*.js', ['lint', 'angular', 'ngmin']);
+    gulp.watch('app/**/*.js', ['angular', 'ngmin', 'lint']);
     gulp.watch('assets/styles/sass/*.sass', ['sass']);
     gulp.watch('assets/styles/css/*.css', ['uncss']);
     gulp.watch('index.html', ['minHTML']);
