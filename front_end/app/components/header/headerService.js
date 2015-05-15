@@ -2,12 +2,12 @@
 (function () {
     'use strict';
     angular.module('headerService', []).
-        factory('Header', function HeaderFactory() {
-            var api = '../dummy_json/',
+        factory('Header', ['$http', function HeaderFactory($http) {
+            var api = 'http://hayswim.com/dummy_json/',
                 headerData = 'header.json';
             return function () {
-                return api + headerData;
+                return $http.get(api + headerData);
             };
-        });
+        }]);
 }());
 

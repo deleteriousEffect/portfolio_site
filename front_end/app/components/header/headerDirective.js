@@ -5,7 +5,9 @@
         directive('portfolioHeader', function () {
             return {
                 restrict: 'E',
-                templateUrl: 'app/components/header/headerView.html'
+                templateUrl: 'app/components/header/headerView.html',
+                controller: 'headerController',
+                scope: {}
             };
         });
 }());

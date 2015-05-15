@@ -1,10 +1,10 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('headerController', ['Header', '$scope']).
-        controller('headerApiController', function ($scope, Header) {
-            $scope.headerData = function () {
-                return new Header();
-            };
-        });
+    angular.module('portfolio').
+        controller('headerController', ['$scope', function ($scope) {
+            $scope.title =  'hello, world';
+            $scope.subtitle = 'test';
+            $scope.iconUrl = 'test';
+        }]);
 }());

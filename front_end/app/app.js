@@ -26,12 +26,12 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('headerController', ['Header', '$scope']).
-        controller('headerApiController', function ($scope, Header) {
-            $scope.headerData = function () {
-                return new Header();
-            };
-        });
+    angular.module('portfolio').
+        controller('headerController', ['$scope', function ($scope) {
+            $scope.title =  'hello, world';
+            $scope.subtitle = 'test';
+            $scope.iconUrl = 'test';
+        }]);
 }());
 
 /*global angular*/
@@ -41,7 +41,9 @@
         directive('portfolioHeader', function () {
             return {
                 restrict: 'E',
-                templateUrl: 'app/components/header/headerView.html'
+                templateUrl: 'app/components/header/headerView.html',
+                controller: 'headerController',
+                scope: {}
             };
         });
 }());
@@ -50,13 +52,13 @@
 (function () {
     'use strict';
     angular.module('headerService', []).
-        factory('Header', function HeaderFactory() {
-            var api = '../dummy_json/',
+        factory('Header', ['$http', function HeaderFactory($http) {
+            var api = 'http://hayswim.com/dummy_json/',
                 headerData = 'header.json';
             return function () {
-                return api + headerData;
+                return $http.get(api + headerData);
             };
-        });
+        }]);
 }());
 
 
