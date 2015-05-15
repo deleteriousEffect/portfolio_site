@@ -28,7 +28,7 @@ gulp.task('lint', function () {
 
 //Concatenate Angular files.
 gulp.task('angular', function () {
-    return gulp.src('app/**/*.js')
+    return gulp.src(['app/**/*.js', '!app/app.js'])
         .pipe(concat('app.js'))
         .pipe(gulp.dest('app'));
 });
@@ -91,7 +91,6 @@ gulp.task('test', function() {
         console.log(err);
     });
 });
-
 
 // Watch for changes.
 gulp.task('watch', function () {

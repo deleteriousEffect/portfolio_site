@@ -5,9 +5,9 @@
         factory('Header', function HeaderFactory() {
             var api = '../dummy_json/',
                 headerData = 'header.json';
-            return function() {
-                    return api + headerData;
-                };
-    });
+            return function () {
+                return api + headerData;
+            };
+        });
 }());
 
