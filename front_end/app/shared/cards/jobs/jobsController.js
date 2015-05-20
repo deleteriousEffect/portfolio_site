@@ -6,7 +6,7 @@
             $http.get('http://api.hayswim.com/jobs')
             .success(function(data) {
                 console.log(data);
-                $scope.cards = data.jobs;
+                $scope.jobs = data.jobs;
             });
         }]);
 }());

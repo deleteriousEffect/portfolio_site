@@ -121,7 +121,7 @@
             $http.get('http://api.hayswim.com/jobs')
             .success(function(data) {
                 console.log(data);
-                $scope.cards = data.jobs;
+                $scope.jobs = data.jobs;
             });
         }]);
 }());
@@ -134,7 +134,7 @@
             $http.get('http://api.hayswim.com/projects')
             .success(function(data) {
                 console.log(data.projects[0].project.title);
-                $scope.cards = data.projects;
+                $scope.projects = data.projects;
             });
         }]);
 }());
