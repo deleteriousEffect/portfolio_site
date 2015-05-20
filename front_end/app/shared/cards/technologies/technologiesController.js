@@ -6,7 +6,7 @@
             $http.get('http://api.hayswim.com/technologies')
             .success(function(data) {
                 console.log(data);
-                $scope.cards = data.technologies;
+                $scope.technologies = data.technologies;
             });
         }]);
 }());
