@@ -16,7 +16,8 @@
 (function () {
     'use strict';
     angular.module('portfolio').
-        config(function($routeProvider) {
+        config(function($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
         $routeProvider.
             when('/projects', {
             templateUrl: 'app/shared/cards/cardView.html'
