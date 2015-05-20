@@ -10,16 +10,20 @@
             controller: 'projectsController'
         }).
             when('/technologies', {
-            templateUrl: 'app/shared/cards/cardView.html'
+            templateUrl: 'app/shared/cards/cardView.html',
+            controller: 'technologiesController'
         }).
             when('/jobs', {
-            templateUrl: 'app/shared/cards/cardView.html'
+            templateUrl: 'app/shared/cards/cardView.html',
+            controller: 'jobsController'
         }).
             when('/schools', {
-            templateUrl: 'app/shared/cards/cardView.html'
+            templateUrl: 'app/shared/cards/cardView.html',
+            controller: 'schoolsController'
         }).
             when('/', {
-            templateUrl: 'app/shared/cards/cardView.html'
+            templateUrl: 'app/shared/cards/cardView.html',
+            controller: 'projectsController'
         }).
             otherwise({
             redirectTo: '/'

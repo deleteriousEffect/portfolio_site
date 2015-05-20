@@ -24,16 +24,20 @@
             controller: 'projectsController'
         }).
             when('/technologies', {
-            templateUrl: 'app/shared/cards/cardView.html'
+            templateUrl: 'app/shared/cards/cardView.html',
+            controller: 'technologiesController'
         }).
             when('/jobs', {
-            templateUrl: 'app/shared/cards/cardView.html'
+            templateUrl: 'app/shared/cards/cardView.html',
+            controller: 'jobsController'
         }).
             when('/schools', {
-            templateUrl: 'app/shared/cards/cardView.html'
+            templateUrl: 'app/shared/cards/cardView.html',
+            controller: 'schoolsController'
         }).
             when('/', {
-            templateUrl: 'app/shared/cards/cardView.html'
+            templateUrl: 'app/shared/cards/cardView.html',
+            controller: 'projectsController'
         }).
             otherwise({
             redirectTo: '/'
@@ -113,11 +117,50 @@
 (function () {
     'use strict';
     angular.module('portfolio').
+        controller('jobsController', ['$scope', '$http', function ($scope, $http) {
+            $http.get('http://api.hayswim.com/jobs')
+            .success(function(data) {
+                console.log(data);
+                $scope.cards = data.jobs;
+            });
+        }]);
+}());
+
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio').
         controller('projectsController', ['$scope', '$http', function ($scope, $http) {
             $http.get('http://api.hayswim.com/projects')
             .success(function(data) {
                 console.log(data);
                 $scope.cards = data.projects;
+            });
+        }]);
+}());
+
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio').
+        controller('schoolsController', ['$scope', '$http', function ($scope, $http) {
+            $http.get('http://api.hayswim.com/schools')
+            .success(function(data) {
+                console.log(data);
+                $scope.cards = data.schools;
+            });
+        }]);
+}());
+
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio').
+        controller('technologiesController', ['$scope', '$http', function ($scope, $http) {
+            $http.get('http://api.hayswim.com/technologies')
+            .success(function(data) {
+                console.log(data);
+                $scope.cards = data.technologies;
             });
         }]);
 }());
