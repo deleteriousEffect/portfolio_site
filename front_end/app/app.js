@@ -6,7 +6,8 @@
         'headerDirective',
         'footerDirective',
         'cardDirective',
-        'navbarDirective'
+        'navbarDirective',
+        'ngRoute'
     ]);
 }());
 
