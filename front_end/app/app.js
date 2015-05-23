@@ -67,15 +67,16 @@
 (function () {
     'use strict';
     angular.module('portfolio').
-        controller('headerController', ['$scope', '$http', function ($scope, $http) {
+        controller('headerController', ['$http', function ($http) {
+            var vm = this;
             $http.get('http://api.hayswim.com/headers/1')
             .success(function(data) {
                 console.log(data);
                 var headerData = data.headers[0].header;
-                $scope.title = headerData.title;
-                $scope.subtitle = headerData.subtitle;
-                $scope.iconUrl = headerData['profile picture'].src;
-                $scope.altText = headerData['profile picture'].alt;
+                vm.title = headerData.title;
+                vm.subtitle = headerData.subtitle;
+                vm.iconUrl = headerData['profile picture'].src;
+                vm.altText = headerData['profile picture'].alt;
             });
         }]);
 }());
@@ -89,7 +90,7 @@
                 restrict: 'E',
                 templateUrl: 'app/components/header/headerView.html',
                 controller: 'headerController',
-                scope: {}
+                controllerAs: 'header'
             };
         });
 }());

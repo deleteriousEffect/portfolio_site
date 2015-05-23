@@ -7,7 +7,7 @@
                 restrict: 'E',
                 templateUrl: 'app/components/header/headerView.html',
                 controller: 'headerController',
-                scope: {}
+                controllerAs: 'header'
             };
         });
 }());
