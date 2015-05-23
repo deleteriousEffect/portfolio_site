@@ -101,4 +101,4 @@ gulp.task('watch', function () {
     gulp.watch('app/**/*.html', ['minViews']);
 });
 
-gulp.task('default', ['lint', 'sass', 'angular', 'ngmin', 'uncss', 'minHTML', 'minViews', 'watch']);
+gulp.task('default', ['sass', 'angular', 'ngmin', 'uncss', 'minHTML', 'minViews', 'lint', 'watch']);
