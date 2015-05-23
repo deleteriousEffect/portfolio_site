@@ -7,7 +7,8 @@
         $routeProvider.
             when('/projects', {
             templateUrl: 'app/shared/cards/projects/cardView.html',
-            controller: 'projectsController'
+            controller: 'projectsController',
+            controllerAs: 'projectsArray'
         }).
             when('/technologies', {
             templateUrl: 'app/shared/cards/technologies/cardView.html',

@@ -21,7 +21,8 @@
         $routeProvider.
             when('/projects', {
             templateUrl: 'app/shared/cards/projects/cardView.html',
-            controller: 'projectsController'
+            controller: 'projectsController',
+            controllerAs: 'projectsArray'
         }).
             when('/technologies', {
             templateUrl: 'app/shared/cards/technologies/cardView.html',
@@ -130,11 +131,14 @@
 (function () {
     'use strict';
     angular.module('portfolio').
-        controller('projectsController', ['$scope', '$http', function ($scope, $http) {
+        controller('projectsController', ['$http', function ($http) {
+            var vm = this;
             $http.get('http://api.hayswim.com/projects')
             .success(function(data) {
                 console.log(data.projects[0].project.title);
-                $scope.projects = data.projects;
+                vm.projects = data.projects;
+                console.log(vm);
+                return vm;
             });
         }]);
 }());
