@@ -135,9 +135,8 @@
             var vm = this;
             $http.get('http://api.hayswim.com/projects')
             .success(function(data) {
-                console.log(data.projects[0].project.title);
+                console.log(data.projects[0].title);
                 vm.projects = data.projects;
-                console.log(vm);
                 return vm;
             });
         }]);
