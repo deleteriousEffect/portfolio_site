@@ -24,7 +24,8 @@
         }).
             when('/', {
             templateUrl: 'app/shared/cards/projects/cardView.html',
-            controller: 'projectsController'
+            controller: 'projectsController',
+            controllerAs: 'projectsArray'
         }).
             otherwise({
             redirectTo: '/'
