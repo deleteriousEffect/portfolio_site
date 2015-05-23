@@ -24,6 +24,10 @@ header {
   margin-top: 25px;
   margin-bottom: 25px; }
 
+.card-icon {
+  float: left;
+  padding: 20px; }
+
 .profile-pic, .blurb, form {
   position: relative;
   top: 50%;

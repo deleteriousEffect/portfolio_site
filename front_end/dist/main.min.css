@@ -440,6 +440,11 @@ ul {
   clear: both;
 }
 
+.card-icon,
+.profile-pic {
+  float: left;
+}
+
 footer,
 header {
   background-color: green;
@@ -448,10 +453,6 @@ header {
 
 @-ms-viewport {
   width: device-width;
-}
-
-.profile-pic {
-  float: left;
 }
 
 .blurb {
@@ -464,6 +465,10 @@ header {
   border-width: 2px;
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+.card-icon {
+  padding: 20px;
 }
 
 .blurb,

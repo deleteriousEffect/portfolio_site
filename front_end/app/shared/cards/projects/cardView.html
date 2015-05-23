@@ -1,7 +1,7 @@
 <div ng-repeat="project in projectsArray.projects">
   <div class="card col-md-4 col-md-offset-1">
     <h2>{{project.title}}</h2>
-    <div ng-if="project.icon">
+    <div class="card-icon" ng-if="project.icon">
       <img ng-src="{{project.icon.src}}" alt="{{project.icon.alt}}">
     </div>
     <p ng-if="project.github"><a ng-href="{{project.github}}">github</a></p>
