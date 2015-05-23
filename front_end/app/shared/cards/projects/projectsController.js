@@ -8,6 +8,7 @@
             .success(function(data) {
                 console.log(data.projects[0].title);
                 vm.projects = data.projects;
+                console.log(vm.projects);
                 return vm;
             });
         }]);

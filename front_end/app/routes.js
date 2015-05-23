@@ -12,15 +12,18 @@
         }).
             when('/technologies', {
             templateUrl: 'app/shared/cards/technologies/cardView.html',
-            controller: 'technologiesController'
+            controller: 'technologiesController',
+            controllerAs: 'technologiesArray'
         }).
             when('/jobs', {
             templateUrl: 'app/shared/cards/jobs/cardView.html',
-            controller: 'jobsController'
+            controller: 'jobsController',
+            controllerAs: 'jobsArray'
         }).
             when('/schools', {
             templateUrl: 'app/shared/cards/schools/cardView.html',
-            controller: 'schoolsController'
+            controller: 'schoolsController',
+            controllerAs: 'schoolsArray'
         }).
             when('/', {
             templateUrl: 'app/shared/cards/projects/cardView.html',

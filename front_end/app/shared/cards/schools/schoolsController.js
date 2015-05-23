@@ -2,11 +2,13 @@
 (function () {
     'use strict';
     angular.module('portfolio').
-        controller('schoolsController', ['$scope', '$http', function ($scope, $http) {
+        controller('schoolsController', ['$http', function ($http) {
+            var vm = this;
             $http.get('http://api.hayswim.com/schools')
             .success(function(data) {
                 console.log(data);
-                $scope.schools = data.schools;
+                vm.schools = data.schools;
+                return vm;
             });
         }]);
 }());

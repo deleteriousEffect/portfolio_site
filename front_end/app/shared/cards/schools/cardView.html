@@ -1,16 +1,16 @@
-<div ng-repeat="card in schools">
+<div ng-repeat="school in schoolsArray.schools">
   <div class="card col-md-4 col-md-offset-1">
-    <h2>{{card.school.title}}</h2>
-    <p>{{card.school.location}}</p>
+    <h2>{{school.title}}</h2>
+    <p>{{school.location}}</p>
     <p>
-      <span>{{card.school.startDate}}</span>
-      <span ng-if="card.school.endDate">{{ - card.school.endDate}}</span>
+      <span>{{school.startDate}}</span>
+      <span ng-if="school.endDate">{{ - school.endDate}}</span>
     </p>
     <p>
-      <span>{{card.school.degree}}: </span>
-      <span>{{card.school.major}}</span>
+      <span>{{school.degree}}: </span>
+      <span>{{school.major}}</span>
     </p>
-    <p ng-if="card.school.minor">{{card.school.minor}}</p>
+    <p ng-if="school.minor">{{school.minor}}</p>
     </ul>
   </div>
 </div>
