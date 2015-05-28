@@ -39,3 +39,5 @@ footer {
   background-color: green;
   height: 400px; }
 
+main {
+  min-height: 400px; }
