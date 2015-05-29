@@ -2,7 +2,8 @@
 (function () {
     'use strict';
     angular.module('portfolio.navbar', [
-        'portfolio.navbar.directive'
+        'portfolio.navbar.directive',
+        'portfolio.navbar.controller'
     ]);
 }());
 

@@ -37,6 +37,35 @@
 /*global angular, $ */
 (function () {
     'use strict';
+    angular.module('portfolio.footer', [
+        'portfolio.footer.directive'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.header', [
+        'portfolio.header.directive',
+        'portfolio.header.controller'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.navbar', [
+        'portfolio.navbar.directive',
+        'portfolio.navbar.controller'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
     angular.module('portfolio.jobs', [
         'portfolio.jobs.controller',
         'ngRoute'
@@ -135,33 +164,76 @@
         }]);
 }());
 
-/*global angular, $ */
+/*global angular*/
 (function () {
     'use strict';
-    angular.module('portfolio.footer', [
-        'portfolio.footer.directive'
-    ]);
+    angular.module('portfolio.footer.directive', []).
+        directive('portfolioFooter', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/footer/templates/footer.html'
+            };
+        });
 }());
 
-
-/*global angular, $ */
+/*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio.header', [
-        'portfolio.header.directive',
-        'portfolio.header.controller'
-    ]);
+    angular.module('portfolio.header.controller', []).
+        controller('headerController', ['$http', function ($http) {
+            var vm = this;
+            $http.get('http://api.hayswim.com/headers/1')
+                .success(function (data) {
+                    console.log(data);
+                    var headerData = data.headers[0].header;
+                    vm.title = headerData.title;
+                    vm.subtitle = headerData.subtitle;
+                    vm.iconUrl = headerData['profile picture'].src;
+                    vm.altText = headerData['profile picture'].alt;
+                });
+        }]);
 }());
 
-
-/*global angular, $ */
+/*global angular*/
 (function () {
     'use strict';
-    angular.module('portfolio.navbar', [
-        'portfolio.navbar.directive'
-    ]);
+    angular.module('portfolio.header.directive', []).
+        directive('portfolioHeader', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/header/templates/header.html',
+                controller: 'headerController',
+                controllerAs: 'header'
+            };
+        });
 }());
 
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio.navbar.controller', []).
+        controller('navbarController', ['$route', function ($route) {
+            var vm = this;
+            vm.routes = $route.routes;
+            for (var route in vm.routes) {
+                console.log(route);
+            }
+        }]);
+}());
+
+/*global angular*/
+(function () {
+    'use strict';
+    angular.module('portfolio.navbar.directive', []).
+        directive('portfolioNavbar', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/navbar/templates/navbar.html',
+                controller: 'navbarController',
+                controllerAs: 'routes'
+            };
+        });
+}());
 
 /*global angular, $*/
 (function () {
@@ -221,60 +293,4 @@
                     return vm;
                 });
         }]);
-}());
-
-/*global angular*/
-(function () {
-    'use strict';
-    angular.module('portfolio.footer.directive', []).
-        directive('portfolioFooter', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'app/components/footer/templates/footer.html'
-            };
-        });
-}());
-
-/*global angular, $*/
-(function () {
-    'use strict';
-    angular.module('portfolio.header.controller', []).
-        controller('headerController', ['$http', function ($http) {
-            var vm = this;
-            $http.get('http://api.hayswim.com/headers/1')
-                .success(function (data) {
-                    console.log(data);
-                    var headerData = data.headers[0].header;
-                    vm.title = headerData.title;
-                    vm.subtitle = headerData.subtitle;
-                    vm.iconUrl = headerData['profile picture'].src;
-                    vm.altText = headerData['profile picture'].alt;
-                });
-        }]);
-}());
-
-/*global angular*/
-(function () {
-    'use strict';
-    angular.module('portfolio.header.directive', []).
-        directive('portfolioHeader', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'app/components/header/templates/header.html',
-                controller: 'headerController',
-                controllerAs: 'header'
-            };
-        });
-}());
-
-/*global angular*/
-(function () {
-    'use strict';
-    angular.module('portfolio.navbar.directive', []).
-        directive('portfolioNavbar', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'app/components/navbar/templates/navbar.html'
-            };
-        });
 }());
