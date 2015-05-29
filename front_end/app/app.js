@@ -4,7 +4,7 @@
     'use strict';
     angular.module('portfolio', [
         'portfolio.header',
-        'footerDirective',
+        'portfolio.footer',
         'cardDirective',
         'navbarDirective',
         'ngRoute'
@@ -51,17 +51,14 @@
 }());
 
 
-/*global angular*/
+/*global angular, $ */
 (function () {
     'use strict';
-    angular.module('footerDirective', []).
-        directive('portfolioFooter', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'app/components/footer/footerView.html'
-            };
-        });
+    angular.module('portfolio.footer', [
+        'portfolio.footer.directive'
+    ]);
 }());
+
 
 /*global angular, $ */
 (function () {
@@ -93,6 +90,18 @@
             return {
                 restrict: 'E',
                 templateUrl: 'app/shared/cards/cardView.html'
+            };
+        });
+}());
+
+/*global angular*/
+(function () {
+    'use strict';
+    angular.module('portfolio.footer.directive', []).
+        directive('portfolioFooter', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/footer/templates/footer.html'
             };
         });
 }());

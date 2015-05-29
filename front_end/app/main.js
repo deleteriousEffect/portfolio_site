@@ -4,7 +4,7 @@
     'use strict';
     angular.module('portfolio', [
         'portfolio.header',
-        'footerDirective',
+        'portfolio.footer',
         'cardDirective',
         'navbarDirective',
         'ngRoute'
