@@ -5,8 +5,8 @@
     angular.module('portfolio', [
         'portfolio.header',
         'portfolio.footer',
+        'portfolio.navbar',
         'cardDirective',
-        'navbarDirective',
         'ngRoute'
     ]);
 }());
@@ -54,6 +54,16 @@
 /*global angular, $ */
 (function () {
     'use strict';
+    angular.module('portfolio.header', [
+        'portfolio.header.directive',
+        'portfolio.header.controller'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
     angular.module('portfolio.footer', [
         'portfolio.footer.directive'
     ]);
@@ -63,24 +73,11 @@
 /*global angular, $ */
 (function () {
     'use strict';
-    angular.module('portfolio.header', [
-        'portfolio.header.directive',
-        'portfolio.header.controller'
+    angular.module('portfolio.navbar', [
+        'portfolio.navbar.directive'
     ]);
 }());
 
-
-/*global angular*/
-(function () {
-    'use strict';
-    angular.module('navbarDirective', []).
-        directive('portfolioNavbar', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'app/components/navbar/navbarView.html'
-            };
-        });
-}());
 
 /*global angular*/
 (function () {
@@ -90,18 +87,6 @@
             return {
                 restrict: 'E',
                 templateUrl: 'app/shared/cards/cardView.html'
-            };
-        });
-}());
-
-/*global angular*/
-(function () {
-    'use strict';
-    angular.module('portfolio.footer.directive', []).
-        directive('portfolioFooter', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'app/components/footer/templates/footer.html'
             };
         });
 }());
@@ -134,6 +119,30 @@
                 templateUrl: 'app/components/header/templates/header.html',
                 controller: 'headerController',
                 controllerAs: 'header'
+            };
+        });
+}());
+
+/*global angular*/
+(function () {
+    'use strict';
+    angular.module('portfolio.footer.directive', []).
+        directive('portfolioFooter', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/footer/templates/footer.html'
+            };
+        });
+}());
+
+/*global angular*/
+(function () {
+    'use strict';
+    angular.module('portfolio.navbar.directive', []).
+        directive('portfolioNavbar', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/navbar/templates/navbar.html'
             };
         });
 }());

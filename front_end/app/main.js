@@ -5,8 +5,8 @@
     angular.module('portfolio', [
         'portfolio.header',
         'portfolio.footer',
+        'portfolio.navbar',
         'cardDirective',
-        'navbarDirective',
         'ngRoute'
     ]);
 }());
