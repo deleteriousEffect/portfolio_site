@@ -10,8 +10,7 @@
         'portfolio.projects',
         'portfolio.schools',
         'portfolio.technologies',
-        'cardDirective',
-        'ngRoute'
+        //'ngRoute'
     ]);
 }());
 
@@ -22,23 +21,13 @@
     angular.module('portfolio').
         config(function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
-            $routeProvider.
-                    when('/technologies', {
-                    templateUrl: 'app/shared/cards/technologies/cardView.html',
-                    controller: 'technologiesController',
-                    controllerAs: 'technologiesArray'
-                }).
-                    when('/schools', {
-                    templateUrl: 'app/shared/cards/schools/cardView.html',
-                    controller: 'schoolsController',
-                    controllerAs: 'schoolsArray'
-                }).
-                    when('/', {
-                    templateUrl: 'app/shared/cards/projects/cardView.html',
+            $routeProvider
+                    .when('/', {
+                    templateUrl: 'app/shared/projects/templates/projects.html',
                     controller: 'projectsController',
                     controllerAs: 'projectsArray'
-                }).
-                    otherwise({
+                })
+                    .otherwise({
                     redirectTo: '/'
                 });
         });

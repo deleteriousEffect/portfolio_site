@@ -10,8 +10,7 @@
         'portfolio.projects',
         'portfolio.schools',
         'portfolio.technologies',
-        'cardDirective',
-        'ngRoute'
+        //'ngRoute'
     ]);
 }());
 
