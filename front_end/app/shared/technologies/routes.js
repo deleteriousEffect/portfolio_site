@@ -1,11 +1,12 @@
 /*global angular, $ */
 (function () {
     'use strict';
-    angular.module('portfolio.jobs')
+    angular.module('portfolio.technologies')
         .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
             $routeProvider
                     .when('/technologies', {
+                    navbarName: 'Technologies',
                     templateUrl: 'app/shared/technologies/templates/technologies.html',
                     controller: 'technologiesController',
                     controllerAs: 'technologiesArray'

@@ -7,7 +7,7 @@
                 restrict: 'E',
                 templateUrl: 'app/components/navbar/templates/navbar.html',
                 controller: 'navbarController',
-                controllerAs: 'routes'
+                controllerAs: 'routesArray'
             };
         });
 }());

@@ -6,6 +6,7 @@
             $locationProvider.html5Mode(true);
             $routeProvider
                     .when('/', {
+                    navbarName: 'Projects',
                     templateUrl: 'app/shared/projects/templates/projects.html',
                     controller: 'projectsController',
                     controllerAs: 'projectsArray'

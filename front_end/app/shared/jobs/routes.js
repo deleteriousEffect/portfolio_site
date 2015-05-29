@@ -6,6 +6,7 @@
             $locationProvider.html5Mode(true);
             $routeProvider
                     .when('/jobs', {
+                    navbarName: 'Work',
                     templateUrl: 'app/shared/jobs/templates/jobs.html',
                     controller: 'jobsController',
                     controllerAs: 'jobsArray'

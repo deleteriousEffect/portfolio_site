@@ -23,6 +23,7 @@
             $locationProvider.html5Mode(true);
             $routeProvider
                     .when('/', {
+                    navbarName: 'Projects',
                     templateUrl: 'app/shared/projects/templates/projects.html',
                     controller: 'projectsController',
                     controllerAs: 'projectsArray'
@@ -81,6 +82,7 @@
             $locationProvider.html5Mode(true);
             $routeProvider
                     .when('/jobs', {
+                    navbarName: 'Work',
                     templateUrl: 'app/shared/jobs/templates/jobs.html',
                     controller: 'jobsController',
                     controllerAs: 'jobsArray'
@@ -107,6 +109,7 @@
             $locationProvider.html5Mode(true);
             $routeProvider
                 .when('/projects', {
+                    navbarName: 'Projects',
                     templateUrl: 'app/shared/projects/templates/projects.html',
                     controller: 'projectsController',
                     controllerAs: 'projectsArray'
@@ -127,11 +130,12 @@
 /*global angular, $ */
 (function () {
     'use strict';
-    angular.module('portfolio.jobs')
+    angular.module('portfolio.schools')
         .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
             $routeProvider
                     .when('/schools', {
+                    navbarName: 'Education',
                     templateUrl: 'app/shared/schools/templates/schools.html',
                     controller: 'schoolsController',
                     controllerAs: 'schoolsArray'
@@ -152,11 +156,12 @@
 /*global angular, $ */
 (function () {
     'use strict';
-    angular.module('portfolio.jobs')
+    angular.module('portfolio.technologies')
         .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
             $routeProvider
                     .when('/technologies', {
+                    navbarName: 'Technologies',
                     templateUrl: 'app/shared/technologies/templates/technologies.html',
                     controller: 'technologiesController',
                     controllerAs: 'technologiesArray'
@@ -213,11 +218,19 @@
     'use strict';
     angular.module('portfolio.navbar.controller', []).
         controller('navbarController', ['$route', function ($route) {
-            var vm = this;
-            vm.routes = $route.routes;
-            for (var route in vm.routes) {
-                console.log(route);
+            var vm = this,
+                routeObject = {},
+                routesArray = [];
+            for (routeObject in $route.routes) {
+                if ($route.routes.hasOwnProperty(routeObject)) {
+                    if ($route.routes[routeObject].navbarName &&
+                            $route.routes[routeObject].originalPath !== '/') {
+                        routesArray.push($route.routes[routeObject]);
+                    }
+                }
             }
+            console.log(routesArray);
+            vm.routes = routesArray;
         }]);
 }());
 
@@ -230,7 +243,7 @@
                 restrict: 'E',
                 templateUrl: 'app/components/navbar/templates/navbar.html',
                 controller: 'navbarController',
-                controllerAs: 'routes'
+                controllerAs: 'routesArray'
             };
         });
 }());
