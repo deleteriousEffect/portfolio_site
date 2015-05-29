@@ -1,7 +1,7 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio').
+    angular.module('portfolio.header.controller', []).
         controller('headerController', ['$http', function ($http) {
             var vm = this;
             $http.get('http://api.hayswim.com/headers/1')

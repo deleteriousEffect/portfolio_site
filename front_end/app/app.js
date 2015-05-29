@@ -3,7 +3,7 @@
 (function () {
     'use strict';
     angular.module('portfolio', [
-        'headerDirective',
+        'portfolio.header',
         'footerDirective',
         'cardDirective',
         'navbarDirective',
@@ -63,37 +63,15 @@
         });
 }());
 
-/*global angular, $*/
+/*global angular, $ */
 (function () {
     'use strict';
-    angular.module('portfolio').
-        controller('headerController', ['$http', function ($http) {
-            var vm = this;
-            $http.get('http://api.hayswim.com/headers/1')
-                .success(function (data) {
-                    console.log(data);
-                    var headerData = data.headers[0].header;
-                    vm.title = headerData.title;
-                    vm.subtitle = headerData.subtitle;
-                    vm.iconUrl = headerData['profile picture'].src;
-                    vm.altText = headerData['profile picture'].alt;
-                });
-        }]);
+    angular.module('portfolio.header', [
+        'portfolio.header.directive',
+        'portfolio.header.controller'
+    ]);
 }());
 
-/*global angular*/
-(function () {
-    'use strict';
-    angular.module('headerDirective', []).
-        directive('portfolioHeader', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'app/components/header/headerView.html',
-                controller: 'headerController',
-                controllerAs: 'header'
-            };
-        });
-}());
 
 /*global angular*/
 (function () {
@@ -115,6 +93,38 @@
             return {
                 restrict: 'E',
                 templateUrl: 'app/shared/cards/cardView.html'
+            };
+        });
+}());
+
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio.header.controller', []).
+        controller('headerController', ['$http', function ($http) {
+            var vm = this;
+            $http.get('http://api.hayswim.com/headers/1')
+                .success(function (data) {
+                    console.log(data);
+                    var headerData = data.headers[0].header;
+                    vm.title = headerData.title;
+                    vm.subtitle = headerData.subtitle;
+                    vm.iconUrl = headerData['profile picture'].src;
+                    vm.altText = headerData['profile picture'].alt;
+                });
+        }]);
+}());
+
+/*global angular*/
+(function () {
+    'use strict';
+    angular.module('portfolio.header.directive', []).
+        directive('portfolioHeader', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/header/templates/header.html',
+                controller: 'headerController',
+                controllerAs: 'header'
             };
         });
 }());

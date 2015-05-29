@@ -3,7 +3,7 @@
 (function () {
     'use strict';
     angular.module('portfolio', [
-        'headerDirective',
+        'portfolio.header',
         'footerDirective',
         'cardDirective',
         'navbarDirective',
