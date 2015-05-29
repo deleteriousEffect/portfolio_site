@@ -6,6 +6,10 @@
         'portfolio.header',
         'portfolio.footer',
         'portfolio.navbar',
+        'portfolio.jobs',
+        'portfolio.projects',
+        'portfolio.schools',
+        'portfolio.technologies',
         'cardDirective',
         'ngRoute'
     ]);

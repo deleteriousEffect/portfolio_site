@@ -1,0 +1,1 @@
+<div ng-repeat="school in schoolsArray.schools"><div class="card col-md-4 col-md-offset-1"><h2>{{school.title}}</h2><p>{{school.location}}</p><p><span>{{school.startDate}}</span> <span ng-if=school.endDate>- {{school.endDate}}</span></p><p><span>{{school.degree}}:</span> <span>{{school.major}}</span></p><p ng-if=school.minor>{{school.minor}}</p></div></div>

@@ -6,6 +6,10 @@
         'portfolio.header',
         'portfolio.footer',
         'portfolio.navbar',
+        'portfolio.jobs',
+        'portfolio.projects',
+        'portfolio.schools',
+        'portfolio.technologies',
         'cardDirective',
         'ngRoute'
     ]);
@@ -19,20 +23,10 @@
         config(function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
             $routeProvider.
-                when('/projects', {
-                    templateUrl: 'app/shared/cards/projects/cardView.html',
-                    controller: 'projectsController',
-                    controllerAs: 'projectsArray'
-                }).
                     when('/technologies', {
                     templateUrl: 'app/shared/cards/technologies/cardView.html',
                     controller: 'technologiesController',
                     controllerAs: 'technologiesArray'
-                }).
-                    when('/jobs', {
-                    templateUrl: 'app/shared/cards/jobs/cardView.html',
-                    controller: 'jobsController',
-                    controllerAs: 'jobsArray'
                 }).
                     when('/schools', {
                     templateUrl: 'app/shared/cards/schools/cardView.html',
@@ -54,9 +48,8 @@
 /*global angular, $ */
 (function () {
     'use strict';
-    angular.module('portfolio.header', [
-        'portfolio.header.directive',
-        'portfolio.header.controller'
+    angular.module('portfolio.footer', [
+        'portfolio.footer.directive'
     ]);
 }());
 
@@ -64,8 +57,9 @@
 /*global angular, $ */
 (function () {
     'use strict';
-    angular.module('portfolio.footer', [
-        'portfolio.footer.directive'
+    angular.module('portfolio.header', [
+        'portfolio.header.directive',
+        'portfolio.header.controller'
     ]);
 }());
 
@@ -87,6 +81,119 @@
             return {
                 restrict: 'E',
                 templateUrl: 'app/shared/cards/cardView.html'
+            };
+        });
+}());
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.jobs', [
+        'portfolio.jobs.controller',
+        'ngRoute'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.jobs')
+        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+            $locationProvider.html5Mode(true);
+            $routeProvider
+                    .when('/jobs', {
+                    templateUrl: 'app/shared/jobs/templates/jobs.html',
+                    controller: 'jobsController',
+                    controllerAs: 'jobsArray'
+                });
+        }]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.projects', [
+        'portfolio.projects.controller',
+        'ngRoute'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.projects')
+        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+            $locationProvider.html5Mode(true);
+            $routeProvider
+                .when('/projects', {
+                    templateUrl: 'app/shared/projects/templates/projects.html',
+                    controller: 'projectsController',
+                    controllerAs: 'projectsArray'
+                });
+        }]);
+}());
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.schools', [
+        'portfolio.schools.controller',
+        'ngRoute'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.jobs')
+        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+            $locationProvider.html5Mode(true);
+            $routeProvider
+                    .when('/schools', {
+                    templateUrl: 'app/shared/schools/templates/schools.html',
+                    controller: 'schoolsController',
+                    controllerAs: 'schoolsArray'
+                });
+        }]);
+}());
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.technologies', [
+        'portfolio.technologies.controller',
+        'ngRoute'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.jobs')
+        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+            $locationProvider.html5Mode(true);
+            $routeProvider
+                    .when('/technologies', {
+                    templateUrl: 'app/shared/technologies/templates/technologies.html',
+                    controller: 'technologiesController',
+                    controllerAs: 'technologiesArray'
+                });
+        }]);
+}());
+
+/*global angular*/
+(function () {
+    'use strict';
+    angular.module('portfolio.footer.directive', []).
+        directive('portfolioFooter', function () {
+            return {
+                restrict: 'E',
+                templateUrl: 'app/components/footer/templates/footer.html'
             };
         });
 }());
@@ -126,18 +233,6 @@
 /*global angular*/
 (function () {
     'use strict';
-    angular.module('portfolio.footer.directive', []).
-        directive('portfolioFooter', function () {
-            return {
-                restrict: 'E',
-                templateUrl: 'app/components/footer/templates/footer.html'
-            };
-        });
-}());
-
-/*global angular*/
-(function () {
-    'use strict';
     angular.module('portfolio.navbar.directive', []).
         directive('portfolioNavbar', function () {
             return {
@@ -150,61 +245,59 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio').
+    angular.module('portfolio.jobs.controller', []).
         controller('jobsController', ['$http', function ($http) {
             var vm = this;
             $http.get('http://api.hayswim.com/jobs')
-            .success(function(data) {
-                console.log(data.jobs[0].title);
-                vm.jobs = data.jobs;
-                console.log(vm.jobs);
-                return vm;
-            });
+                .success(function (data) {
+                    vm.jobs = data.jobs;
+                    return vm;
+                });
         }]);
 }());
 
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio').
-        controller('projectsController', ['$http', function ($http) {
+    angular.module('portfolio.projects.controller', [])
+        .controller('projectsController', ['$http', function ($http) {
             var vm = this;
             $http.get('http://api.hayswim.com/projects')
-            .success(function(data) {
-                console.log(data.projects[0].title);
-                vm.projects = data.projects;
-                console.log(vm.projects);
-                return vm;
-            });
+                .success(function (data) {
+                    console.log(data.projects[0].title);
+                    vm.projects = data.projects;
+                    console.log(vm.projects);
+                    return vm;
+                });
         }]);
 }());
 
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio').
+    angular.module('portfolio.schools.controller', []).
         controller('schoolsController', ['$http', function ($http) {
             var vm = this;
             $http.get('http://api.hayswim.com/schools')
-            .success(function(data) {
-                console.log(data);
-                vm.schools = data.schools;
-                return vm;
-            });
+                .success(function (data) {
+                    console.log(data);
+                    vm.schools = data.schools;
+                    return vm;
+                });
         }]);
 }());
 
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio').
+    angular.module('portfolio.technologies.controller', []).
         controller('technologiesController', ['$http', function ($http) {
             var vm = this;
             $http.get('http://api.hayswim.com/technologies')
-            .success(function(data) {
-                console.log(data);
-                vm.technologies = data.technologies;
-                return vm;
-            });
+                .success(function (data) {
+                    console.log(data);
+                    vm.technologies = data.technologies;
+                    return vm;
+                });
         }]);
 }());
