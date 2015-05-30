@@ -485,11 +485,3 @@ form {
 main {
   min-height: 400px;
 }
-
-@font-face {
-  font-family: FontMfizz;
-  src: url(font-mfizz.eot);
-  src: url(font-mfizz.eot?#iefix)format("embedded-opentype"),url(font-mfizz.woff)format("woff"),url(font-mfizz.ttf)format("truetype"),url(font-mfizz.svg#font-mfizz)format("svg");
-  font-weight: 400;
-  font-style: normal;
-}

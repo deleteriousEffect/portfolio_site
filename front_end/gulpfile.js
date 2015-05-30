@@ -43,8 +43,7 @@ gulp.task('sass', function () {
 // Remove Unused CSS and minify.
 gulp.task('uncss', function () {
     return gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css',
-                    'assets/styles/css/custom.css',
-                    'assets/font-mfizz/font-mfizz.css'])
+                    'assets/styles/css/custom.css'])
     .pipe(concat('main.min.css'))
     .pipe(minifyCss({
                   keepSpecialComments: 0
@@ -71,7 +70,6 @@ gulp.task('minHTML', function() {
     .pipe(replace(/(<script.*)\.js/g, '$1.min.js'))
     .pipe(replace('<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">', ''))
     .pipe(replace('assets/styles/css/custom.css', 'main.min.css'))
-    .pipe(replace('<link rel="stylesheet" href="assets/font-mfizz/font-mfizz.css">', ''))
     .pipe(minifyHTML())
     .pipe(gulp.dest('dist'));
 });
