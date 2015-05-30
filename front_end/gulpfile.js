@@ -51,7 +51,7 @@ gulp.task('uncss', function () {
                  }))
     .pipe(uncss({
         html: ['app/**/*.html'],
-        ignore: ['.clearfix']
+        ignore: ['.clearfix', 'main']
     }))
     .pipe(gulp.dest('dist'));
 });
