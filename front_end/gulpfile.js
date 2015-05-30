@@ -42,7 +42,9 @@ gulp.task('sass', function () {
 
 // Remove Unused CSS and minify.
 gulp.task('uncss', function () {
-    return gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css', 'assets/styles/css/custom.css'])
+    return gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css',
+                    'assets/styles/css/custom.css',
+                    'assets/font-mfizz/font-mfizz.css'])
     .pipe(concat('main.min.css'))
     .pipe(minifyCss({
                   keepSpecialComments: 0
@@ -69,6 +71,7 @@ gulp.task('minHTML', function() {
     .pipe(replace(/(<script.*)\.js/g, '$1.min.js'))
     .pipe(replace('<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">', ''))
     .pipe(replace('assets/styles/css/custom.css', 'main.min.css'))
+    .pipe(replace('<link rel="stylesheet" href="assets/font-mfizz/font-mfizz.css">', ''))
     .pipe(minifyHTML())
     .pipe(gulp.dest('dist'));
 });
@@ -78,6 +81,17 @@ gulp.task('minViews', function() {
     return gulp.src('app/**/*.html')
     .pipe(minifyHTML())
     .pipe(gulp.dest('dist/app'));
+});
+
+// Copy font-mfizz assets to dist.
+gulp.task('mfizz', function () {
+    return gulp.src([
+        'assets/font-mfizz/*',
+        '!assets/font-mfizz/*.txt',
+        '!assets/font-mfizz/*.md',
+        '!assets/font-mfizz/*.html'
+    ])
+        .pipe(gulp.dest('dist/assets/font-mfizz'));
 });
 
 // Run test runner.
@@ -101,4 +115,4 @@ gulp.task('watch', function () {
     gulp.watch('app/**/*.html', ['minViews']);
 });
 
-gulp.task('default', ['sass', 'angular', 'ngmin', 'uncss', 'minHTML', 'minViews', 'lint', 'watch']);
+gulp.task('default', ['sass', 'angular', 'ngmin', 'uncss', 'minHTML', 'minViews', 'lint', 'mfizz', 'watch']);
