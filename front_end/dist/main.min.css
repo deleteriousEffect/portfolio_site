@@ -84,10 +84,6 @@ input::-moz-focus-inner {
   }
 }
 
-body {
-  background-color: #fff;
-}
-
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(../fonts/glyphicons-halflings-regular.eot);
@@ -381,6 +377,11 @@ header {
   background-color: #241A5D;
 }
 
+body,
+main {
+  background-color: #333;
+}
+
 .card,
 footer,
 header {
@@ -483,5 +484,4 @@ header {
 
 main {
   min-height: 400px;
-  background-color: #163158;
 }
