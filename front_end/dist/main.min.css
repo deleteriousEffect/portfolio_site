@@ -433,11 +433,6 @@ ul {
   clear: both;
 }
 
-.card-icon,
-.profile-pic {
-  float: left;
-}
-
 footer,
 header {
   background-color: green;
@@ -451,6 +446,10 @@ header {
   height: 400px;
 }
 
+.profile-pic {
+  float: left;
+}
+
 .blurb {
   border-color: #fff;
   border-width: 6px;
@@ -462,7 +461,8 @@ header {
   margin-bottom: 25px;
 }
 
-.card-icon {
+.card__icon {
+  float: left;
   padding: 20px;
 }
 
