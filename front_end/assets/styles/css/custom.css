@@ -6,7 +6,8 @@
   transform: translateY(-50%); }
 
 header {
-  background-color: green;
+  background-color: #3D3278;
+  color: #867EB2;
   height: 400px; }
 
 .header__profile-pic {
