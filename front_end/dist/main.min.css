@@ -218,10 +218,11 @@ ul {
   padding-left: 15px;
 }
 
-.col-md-2,
+.col-md-3,
 .col-md-4,
 .col-md-5,
 .col-md-8,
+.col-sm-12,
 .col-sm-4 {
   position: relative;
   min-height: 1px;
@@ -230,8 +231,13 @@ ul {
 }
 
 @media (min-width:768px) {
+  .col-sm-12,
   .col-sm-4 {
     float: left;
+  }
+
+  .col-sm-12 {
+    width: 100%;
   }
 
   .col-sm-4 {
@@ -240,7 +246,7 @@ ul {
 }
 
 @media (min-width:992px) {
-  .col-md-2,
+  .col-md-3,
   .col-md-4,
   .col-md-5,
   .col-md-8 {
@@ -259,8 +265,8 @@ ul {
     width: 33.33333333%;
   }
 
-  .col-md-2 {
-    width: 16.66666667%;
+  .col-md-3 {
+    width: 25%;
   }
 
   .col-md-offset-4 {
