@@ -302,6 +302,17 @@ ul {
   }
 }
 
+.navbar-static-top {
+  z-index: 1000;
+  border-width: 0 0 1px;
+}
+
+@media (min-width:768px) {
+  .navbar-static-top {
+    border-radius: 0;
+  }
+}
+
 .navbar-nav {
   margin: 7.5px -15px;
 }
@@ -328,18 +339,18 @@ ul {
   }
 }
 
-.navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+.navbar-inverse {
+  background-color: #222;
+  border-color: #080808;
 }
 
-.navbar-default .navbar-nav>li>a {
-  color: #777;
+.navbar-inverse .navbar-nav>li>a {
+  color: #9d9d9d;
 }
 
-.navbar-default .navbar-nav>li>a:focus,
-.navbar-default .navbar-nav>li>a:hover {
-  color: #333;
+.navbar-inverse .navbar-nav>li>a:focus,
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: #fff;
   background-color: transparent;
 }
 
@@ -415,6 +426,11 @@ header {
   color: #00f;
 }
 
+.footer__link,
+footer {
+  color: #867EB2;
+}
+
 .header__blurb,
 .header__profile-pic {
   position: relative;
@@ -425,11 +441,15 @@ header {
 }
 
 footer {
-  background-color: green;
+  background-color: #241A5D;
 }
 
 .footer__contacts {
   font-size: 15em;
+}
+
+.footer__link:hover {
+  color: #5D5395;
 }
 
 .navbar .nav {

@@ -39,10 +39,16 @@ header {
   transform: translateY(-50%); }
 
 footer {
-  background-color: green; }
+  background-color: #241A5D;
+  color: #867EB2; }
 
 .footer__contacts {
   font-size: 15em; }
+
+.footer__link {
+  color: #867EB2; }
+  .footer__link:hover {
+    color: #5D5395; }
 
 .navbar .navbar-inner {
   padding: 0; }
