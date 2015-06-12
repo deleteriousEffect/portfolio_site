@@ -448,15 +448,27 @@ header {
   width: device-width;
 }
 
+@media (max-width:767px) {
+  .hidden-xs {
+    display: none!important;
+  }
+}
+
+@media (min-width:768px)and (max-width:991px) {
+  .hidden-sm {
+    display: none!important;
+  }
+}
+
 header {
   height: 400px;
 }
 
-.profile-pic {
+.header__profile-pic {
   float: left;
 }
 
-.blurb {
+.header__blurb {
   border-color: #fff;
   border-width: 6px;
   border-style: dashed;
@@ -480,8 +492,8 @@ header {
   color: #00f;
 }
 
-.blurb,
-.profile-pic,
+.header__blurb,
+.header__profile-pic,
 form {
   position: relative;
   top: 50%;

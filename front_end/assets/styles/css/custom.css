@@ -1,4 +1,4 @@
-.profile-pic, .blurb, form {
+.header__profile-pic, .header__blurb, form {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -9,10 +9,10 @@ header {
   background-color: green;
   height: 400px; }
 
-.profile-pic {
+.header__profile-pic {
   float: left; }
 
-.blurb {
+.header__blurb {
   border-color: white;
   border-width: 6px;
   border-style: dashed; }
@@ -30,7 +30,7 @@ header {
   .card--technologies:hover {
     color: blue; }
 
-.profile-pic, .blurb, form {
+.header__profile-pic, .header__blurb, form {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
