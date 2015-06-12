@@ -7,6 +7,7 @@
             $routeProvider
                 .when('/projects', {
                     navbarName: 'Projects',
+                    priority: 0,
                     templateUrl: 'app/shared/projects/templates/projects.html',
                     controller: 'projectsController',
                     controllerAs: 'projectsArray'

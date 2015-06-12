@@ -7,6 +7,7 @@
             $routeProvider
                     .when('/technologies', {
                     navbarName: 'Technologies',
+                    priority: 1,
                     templateUrl: 'app/shared/technologies/templates/technologies.html',
                     controller: 'technologiesController',
                     controllerAs: 'technologiesArray'

@@ -7,6 +7,7 @@
             $routeProvider
                     .when('/jobs', {
                     navbarName: 'Work',
+                    priority: 7,
                     templateUrl: 'app/shared/jobs/templates/jobs.html',
                     controller: 'jobsController',
                     controllerAs: 'jobsArray'

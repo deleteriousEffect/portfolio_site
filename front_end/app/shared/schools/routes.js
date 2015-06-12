@@ -7,6 +7,7 @@
             $routeProvider
                     .when('/schools', {
                     navbarName: 'Education',
+                    priority: 3,
                     templateUrl: 'app/shared/schools/templates/schools.html',
                     controller: 'schoolsController',
                     controllerAs: 'schoolsArray'
