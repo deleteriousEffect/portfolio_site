@@ -376,6 +376,11 @@ ul {
   clear: both;
 }
 
+footer,
+header {
+  background-color: #241A5D;
+}
+
 @-ms-viewport {
   width: device-width;
 }
@@ -393,7 +398,6 @@ ul {
 }
 
 header {
-  background-color: #3D3278;
   color: #867EB2;
   height: 400px;
 }
@@ -438,10 +442,6 @@ footer {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-}
-
-footer {
-  background-color: #241A5D;
 }
 
 .footer__contacts {
