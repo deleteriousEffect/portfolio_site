@@ -221,11 +221,22 @@ ul {
 .col-md-2,
 .col-md-4,
 .col-md-5,
-.col-md-8 {
+.col-md-8,
+.col-sm-4 {
   position: relative;
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+}
+
+@media (min-width:768px) {
+  .col-sm-4 {
+    float: left;
+  }
+
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
 }
 
 @media (min-width:992px) {
@@ -430,11 +441,14 @@ ul {
 footer,
 header {
   background-color: green;
-  height: 400px;
 }
 
 @-ms-viewport {
   width: device-width;
+}
+
+header {
+  height: 400px;
 }
 
 .blurb {
@@ -452,6 +466,14 @@ header {
   padding: 20px;
 }
 
+.card--technologies {
+  height: 230px;
+}
+
+.card--technologies:hover {
+  color: #00f;
+}
+
 .blurb,
 .profile-pic,
 form {
@@ -460,6 +482,10 @@ form {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+footer {
+  height: 400px;
 }
 
 main {
