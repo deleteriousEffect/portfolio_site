@@ -196,6 +196,10 @@ p {
   margin: 0 0 10px;
 }
 
+.text-center {
+  text-align: center;
+}
+
 ul {
   margin-top: 0;
 }
@@ -204,32 +208,14 @@ ul {
   margin-bottom: 10px;
 }
 
-.container {
+.container-fluid {
   margin-right: auto;
   margin-left: auto;
 }
 
-.container {
+.container-fluid {
   padding-right: 15px;
   padding-left: 15px;
-}
-
-@media (min-width:768px) {
-  .container {
-    width: 750px;
-  }
-}
-
-@media (min-width:992px) {
-  .container {
-    width: 970px;
-  }
-}
-
-@media (min-width:1200px) {
-  .container {
-    width: 1170px;
-  }
 }
 
 .col-md-2,
@@ -417,15 +403,10 @@ ul {
   background-color: transparent;
 }
 
-.blurb,
-.card {
-  border-style: dashed;
-}
-
 .clearfix:after,
 .clearfix:before,
-.container:after,
-.container:before,
+.container-fluid:after,
+.container-fluid:before,
 .nav:after,
 .nav:before,
 .navbar:after,
@@ -435,7 +416,7 @@ ul {
 }
 
 .clearfix:after,
-.container:after,
+.container-fluid:after,
 .nav:after,
 .navbar:after {
   clear: both;
@@ -459,11 +440,10 @@ header {
 .blurb {
   border-color: #fff;
   border-width: 6px;
+  border-style: dashed;
 }
 
 .card {
-  border-color: gray;
-  border-width: 2px;
   margin-top: 25px;
   margin-bottom: 25px;
 }
