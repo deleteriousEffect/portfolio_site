@@ -1,4 +1,4 @@
-.header__profile-pic, .header__blurb, form {
+.header__profile-pic, .header__blurb {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -30,7 +30,7 @@ header {
   .card--technologies:hover {
     color: blue; }
 
-.header__profile-pic, .header__blurb, form {
+.header__profile-pic, .header__blurb {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -38,8 +38,10 @@ header {
   transform: translateY(-50%); }
 
 footer {
-  background-color: green;
-  height: 400px; }
+  background-color: green; }
+
+.footer__contacts {
+  font-size: 15em; }
 
 main {
   min-height: 400px; }
