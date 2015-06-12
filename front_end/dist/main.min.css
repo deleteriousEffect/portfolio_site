@@ -381,6 +381,12 @@ header {
   background-color: #241A5D;
 }
 
+.card,
+footer,
+header {
+  color: #fafafa;
+}
+
 @-ms-viewport {
   width: device-width;
 }
@@ -398,7 +404,6 @@ header {
 }
 
 header {
-  color: #867EB2;
   height: 400px;
 }
 
@@ -426,15 +431,6 @@ header {
   height: 230px;
 }
 
-.card--technologies:hover {
-  color: #00f;
-}
-
-.footer__link,
-footer {
-  color: #867EB2;
-}
-
 .header__blurb,
 .header__profile-pic {
   position: relative;
@@ -446,6 +442,10 @@ footer {
 
 .footer__contacts {
   font-size: 15em;
+}
+
+.footer__link {
+  color: #867EB2;
 }
 
 .footer__link:hover {
@@ -483,4 +483,5 @@ footer {
 
 main {
   min-height: 400px;
+  background-color: #163158;
 }

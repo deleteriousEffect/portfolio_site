@@ -36,7 +36,9 @@ gulp.task('angular', function () {
 // Compile sass files.
 gulp.task('sass', function () {
     return gulp.src('assets/styles/sass/custom.sass')
-        .pipe(sass({indentedSyntax: true}))
+        .pipe(sass({indentedSyntax: true,
+                    errLogToConsole: true
+            }))
         .pipe(gulp.dest('assets/styles/css'));
 });
 
