@@ -412,12 +412,6 @@ header {
   float: left;
 }
 
-.header__blurb {
-  border-color: #fff;
-  border-width: 6px;
-  border-style: dashed;
-}
-
 .card {
   margin-top: 25px;
   margin-bottom: 25px;
