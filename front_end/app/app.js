@@ -221,7 +221,7 @@
 (function () {
     'use strict';
     angular.module('portfolio.navbar.controller', []).
-        controller('navbarController', ['$route', function ($route) {
+        controller('navbarController', ['$route', '$scope', function ($route, $scope) {
             var vm = this,
                 routeObject = {},
                 routesArray = [];
@@ -235,6 +235,8 @@
             }
             console.log(routesArray);
             vm.routes = routesArray;
+            $scope.$route = $route;
+            console.log($scope.$route);
         }]);
 }());
 
