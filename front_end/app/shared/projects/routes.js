@@ -12,8 +12,8 @@
                     controller: 'projectsController',
                     controllerAs: 'projectsArray',
                     resolve: {
-                        projectsData: function (projectsService) {
-                            return projectsService.getProjectsData();
+                        projectsData: function (portfolioService) {
+                            return portfolioService.getPortfolioData('projects');
                         }
                     }
                 });

@@ -10,7 +10,7 @@
                     priority: 1,
                     templateUrl: 'app/shared/technologies/templates/technologies.html',
                     controller: 'technologiesController',
-                    controllerAs: 'technologiesArray'
+                    controllerAs: 'technologiesArray',
                 });
         }]);
 }());

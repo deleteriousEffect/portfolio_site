@@ -38,6 +38,35 @@
 /*global angular, $ */
 (function () {
     'use strict';
+    angular.module('portfolio.footer', [
+        'portfolio.footer.directive'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.header', [
+        'portfolio.header.directive',
+        'portfolio.header.controller'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
+    angular.module('portfolio.navbar', [
+        'portfolio.navbar.directive',
+        'portfolio.navbar.controller'
+    ]);
+}());
+
+
+/*global angular, $ */
+(function () {
+    'use strict';
     angular.module('portfolio.jobs', [
         'portfolio.jobs.controller',
         'ngRoute'
@@ -87,8 +116,8 @@
                     controller: 'projectsController',
                     controllerAs: 'projectsArray',
                     resolve: {
-                        projectsData: function (projectsService) {
-                            return projectsService.getProjectsData();
+                        projectsData: function (portfolioService) {
+                            return portfolioService.getPortfolioData('projects');
                         }
                     }
                 });
@@ -122,6 +151,41 @@
         }]);
 }());
 
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio.service', [])
+        .service('portfolioService', ['$http', '$q', function ($http, $q) {
+            var API_ENDPOINT = 'http://api.hayswim.com';
+
+            function getPortfolioData(section) {
+                var deferred = $q.defer();
+
+                $http.get(API_ENDPOINT + '/' + section)
+                    .success(function (data) {
+                        var currentData;
+
+                        currentData = {
+                            projects: data.projects
+                        };
+
+                        deferred.resolve(currentData);
+                    })
+                    .error(function () {
+
+                        deferred.resolve({
+                            errorMessage: "Connection lost, please reload page or return later."
+                        });
+                    });
+                return deferred.promise;
+            }
+            return {
+                getPortfolioData: getPortfolioData
+            };
+
+        }]);
+}());
+
 /*global angular, $ */
 (function () {
     'use strict';
@@ -144,128 +208,7 @@
                     priority: 1,
                     templateUrl: 'app/shared/technologies/templates/technologies.html',
                     controller: 'technologiesController',
-                    controllerAs: 'technologiesArray'
-                });
-        }]);
-}());
-
-/*global angular, $ */
-(function () {
-    'use strict';
-    angular.module('portfolio.footer', [
-        'portfolio.footer.directive'
-    ]);
-}());
-
-
-/*global angular, $ */
-(function () {
-    'use strict';
-    angular.module('portfolio.header', [
-        'portfolio.header.directive',
-        'portfolio.header.controller'
-    ]);
-}());
-
-
-/*global angular, $ */
-(function () {
-    'use strict';
-    angular.module('portfolio.navbar', [
-        'portfolio.navbar.directive',
-        'portfolio.navbar.controller'
-    ]);
-}());
-
-
-/*global angular, $*/
-(function () {
-    'use strict';
-    angular.module('portfolio.jobs.controller', []).
-        controller('jobsController', ['$http', function ($http) {
-            var vm = this;
-            $http.get('http://api.hayswim.com/jobs')
-                .success(function (data) {
-                    vm.jobs = data.jobs;
-                    return vm;
-                });
-        }]);
-}());
-
-/*global angular, $*/
-(function () {
-    'use strict';
-    angular.module('portfolio.projects.controller', [
-        'portfolio.projects.service'
-    ])
-        .controller('projectsController', function (projectsData) {
-            var vm = this;
-            vm.projects = projectsData.projects;
-        });
-}());
-
-/*global angular, $*/
-(function () {
-    'use strict';
-    angular.module('portfolio.projects.service', [])
-        .service('projectsService', ['$http', '$q', function ($http, $q) {
-            var API_ENDPOINT = 'http://api.hayswim.com',
-                PROJECTS_JSON = 'projects';
-
-            function getProjectsData() {
-                var deferred = $q.defer();
-
-                $http.get(API_ENDPOINT + '/' + PROJECTS_JSON)
-                    .success(function (projectsData) {
-                        var currentProjectsData;
-
-                        currentProjectsData = {
-                            projects: projectsData.projects
-                        };
-
-                        deferred.resolve(currentProjectsData);
-                    })
-                    .error(function () {
-
-                        deferred.resolve({
-                            projects: []
-                        });
-                    });
-                return deferred.promise;
-            }
-            return {
-                getProjectsData: getProjectsData
-            };
-
-        }]);
-}());
-
-/*global angular, $*/
-(function () {
-    'use strict';
-    angular.module('portfolio.schools.controller', []).
-        controller('schoolsController', ['$http', function ($http) {
-            var vm = this;
-            $http.get('http://api.hayswim.com/schools')
-                .success(function (data) {
-                    console.log(data);
-                    vm.schools = data.schools;
-                    return vm;
-                });
-        }]);
-}());
-
-/*global angular, $*/
-(function () {
-    'use strict';
-    angular.module('portfolio.technologies.controller', []).
-        controller('technologiesController', ['$http', function ($http) {
-            var vm = this;
-            $http.get('http://api.hayswim.com/technologies')
-                .success(function (data) {
-                    console.log(data);
-                    vm.technologies = data.technologies;
-                    return vm;
+                    controllerAs: 'technologiesArray',
                 });
         }]);
 }());
@@ -349,4 +292,60 @@
                 controllerAs: 'routesArray'
             };
         });
+}());
+
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio.jobs.controller', []).
+        controller('jobsController', ['$http', function ($http) {
+            var vm = this;
+            $http.get('http://api.hayswim.com/jobs')
+                .success(function (data) {
+                    vm.jobs = data.jobs;
+                    return vm;
+                });
+        }]);
+}());
+
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio.projects.controller', [
+        'portfolio.service'
+    ])
+        .controller('projectsController', function (projectsData) {
+            var vm = this;
+            vm.projects = projectsData.projects;
+        });
+}());
+
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio.schools.controller', []).
+        controller('schoolsController', ['$http', function ($http) {
+            var vm = this;
+            $http.get('http://api.hayswim.com/schools')
+                .success(function (data) {
+                    console.log(data);
+                    vm.schools = data.schools;
+                    return vm;
+                });
+        }]);
+}());
+
+/*global angular, $*/
+(function () {
+    'use strict';
+    angular.module('portfolio.technologies.controller', []).
+        controller('technologiesController', ['$http', function ($http) {
+            var vm = this;
+            $http.get('http://api.hayswim.com/technologies')
+                .success(function (data) {
+                    console.log(data);
+                    vm.technologies = data.technologies;
+                    return vm;
+                });
+        }]);
 }());

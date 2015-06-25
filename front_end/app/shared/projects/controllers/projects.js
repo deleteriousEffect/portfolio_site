@@ -2,7 +2,7 @@
 (function () {
     'use strict';
     angular.module('portfolio.projects.controller', [
-        'portfolio.projects.service'
+        'portfolio.service'
     ])
         .controller('projectsController', function (projectsData) {
             var vm = this;
