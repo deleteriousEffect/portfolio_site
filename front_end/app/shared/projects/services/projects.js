@@ -3,7 +3,7 @@
     'use strict';
     angular.module('portfolio.projects.service', [])
         .service('projectsService', ['$http', '$q', function ($http, $q) {
-            var API_ENDPOINT = 'api.hayswim.com',
+            var API_ENDPOINT = 'http://api.hayswim.com',
                 PROJECTS_JSON = 'projects';
 
             function getProjectsData() {
@@ -25,10 +25,8 @@
                             projects: []
                         });
                     });
-
                 return deferred.promise;
             }
-
             return {
                 getProjectsData: getProjectsData
             };

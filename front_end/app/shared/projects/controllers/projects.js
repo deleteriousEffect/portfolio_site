@@ -1,15 +1,11 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio.projects.controller', [])
-        .controller('projectsController', ['$http', function ($http) {
+    angular.module('portfolio.projects.controller', [
+        'portfolio.projects.service'
+    ])
+        .controller('projectsController', function (projectsData) {
             var vm = this;
-            $http.get('http://api.hayswim.com/projects')
-                .success(function (data) {
-                    console.log(data.projects[0].title);
-                    vm.projects = data.projects;
-                    console.log(vm.projects);
-                    return vm;
-                });
-        }]);
+            vm.projects = projectsData.projects;
+        });
 }());

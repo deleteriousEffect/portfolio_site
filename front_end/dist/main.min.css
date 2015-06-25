@@ -84,10 +84,6 @@ input::-moz-focus-inner {
   }
 }
 
-body {
-  background-color: #fff;
-}
-
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(../fonts/glyphicons-halflings-regular.eot);
@@ -462,6 +458,22 @@ ul {
   clear: both;
 }
 
+footer,
+header {
+  background-color: #241A5D;
+}
+
+body,
+main {
+  background-color: #333;
+}
+
+.card,
+footer,
+header {
+  color: #fafafa;
+}
+
 @-ms-viewport {
   width: device-width;
 }
@@ -476,4 +488,51 @@ ul {
   .hidden-sm {
     display: none!important;
   }
+}
+
+header {
+  height: 400px;
+}
+
+.header__profile-pic {
+  float: left;
+}
+
+.card {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.card__icon {
+  float: left;
+  padding: 20px;
+}
+
+.card--technologies {
+  height: 230px;
+}
+
+.header__blurb,
+.header__profile-pic {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.footer__contacts {
+  font-size: 15em;
+}
+
+.footer__link {
+  color: #867EB2;
+}
+
+.footer__link:hover {
+  color: #5D5395;
+}
+
+main {
+  min-height: 400px;
 }

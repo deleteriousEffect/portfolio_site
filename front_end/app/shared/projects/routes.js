@@ -10,7 +10,12 @@
                     priority: 0,
                     templateUrl: 'app/shared/projects/templates/projects.html',
                     controller: 'projectsController',
-                    controllerAs: 'projectsArray'
+                    controllerAs: 'projectsArray',
+                    resolve: {
+                        projectsData: function (projectsService) {
+                            return projectsService.getProjectsData();
+                        }
+                    }
                 });
         }]);
 }());
