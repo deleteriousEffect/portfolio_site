@@ -287,6 +287,26 @@
 /*global angular, $*/
 (function () {
     'use strict';
+    angular.module('portfolio.projects.service', [])
+        .service('projectsService', ['$http', '$q', function ($http, $q) {
+            var API_ENDPOINT = 'api.hayswim.com',
+                PROJECTS_JSON = 'projects';
+
+            function getProjectsData() {
+                var deferred = $q.defer();
+
+                $http.get(API_ENDPOINT + '/' + PROJECTS_JSON)
+                    .success(function (data) {
+                        console.log(data.projects[0].title);
+                        vm.projects = data.projects;
+                        console.log(vm.projects);
+                    return vm; });
+        }]);
+}());
+
+/*global angular, $*/
+(function () {
+    'use strict';
     angular.module('portfolio.schools.controller', []).
         controller('schoolsController', ['$http', function ($http) {
             var vm = this;
