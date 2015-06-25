@@ -10,8 +10,12 @@
                     priority: 7,
                     templateUrl: 'app/shared/jobs/templates/jobs.html',
                     controller: 'jobsController',
-                    controllerAs: 'jobsArray'
+                    controllerAs: 'jobsArray',
+                    resolve: {
+                        jobsData: function (portfolioService) {
+                            return portfolioService.getPortfolioData('jobs');
+                        }
+                    }
                 });
         }]);
 }());
-

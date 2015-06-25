@@ -86,11 +86,15 @@
                     priority: 7,
                     templateUrl: 'app/shared/jobs/templates/jobs.html',
                     controller: 'jobsController',
-                    controllerAs: 'jobsArray'
+                    controllerAs: 'jobsArray',
+                    resolve: {
+                        jobsData: function (portfolioService) {
+                            return portfolioService.getPortfolioData('jobs');
+                        }
+                    }
                 });
         }]);
 }());
-
 
 /*global angular, $ */
 (function () {
@@ -297,14 +301,11 @@
 (function () {
     'use strict';
     angular.module('portfolio.jobs.controller', []).
-        controller('jobsController', ['$http', function ($http) {
+        controller('jobsController', function (jobsData) {
             var vm = this;
-            $http.get('http://api.hayswim.com/jobs')
-                .success(function (data) {
-                    vm.jobs = data.jobs;
-                    return vm;
-                });
-        }]);
+            vm.jobs = jobsData.jobs;
+            vm.errorMessage = jobsData.errorMessage;
+        });
 }());
 
 /*global angular, $*/
