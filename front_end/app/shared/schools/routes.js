@@ -10,7 +10,12 @@
                     priority: 3,
                     templateUrl: 'app/shared/schools/templates/schools.html',
                     controller: 'schoolsController',
-                    controllerAs: 'schoolsArray'
+                    controllerAs: 'schoolsArray',
+                    resolve: {
+                        schoolsData: function (portfolioService) {
+                            return portfolioService.getPortfolioData('schools');
+                        }
+                    }
                 });
         }]);
 }());

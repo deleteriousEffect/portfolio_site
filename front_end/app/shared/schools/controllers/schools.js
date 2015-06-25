@@ -1,14 +1,13 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio.schools.controller', []).
-        controller('schoolsController', ['$http', function ($http) {
+    angular.module('portfolio.schools.controller', [
+        'portfolio.service'
+    ]).
+        controller('schoolsController', function (schoolsData) {
             var vm = this;
-            $http.get('http://api.hayswim.com/schools')
-                .success(function (data) {
-                    console.log(data);
-                    vm.schools = data.schools;
-                    return vm;
-                });
-        }]);
+            vm.schools = schoolsData.schools;
+            vm.errorMessage = schoolsData.errorMessage;
+            console.log(schoolsData);
+        });
 }());

@@ -146,7 +146,12 @@
                     priority: 3,
                     templateUrl: 'app/shared/schools/templates/schools.html',
                     controller: 'schoolsController',
-                    controllerAs: 'schoolsArray'
+                    controllerAs: 'schoolsArray',
+                    resolve: {
+                        schoolsData: function (portfolioService) {
+                            return portfolioService.getPortfolioData('schools');
+                        }
+                    }
                 });
         }]);
 }());
@@ -163,13 +168,7 @@
 
                 $http.get(API_ENDPOINT + '/' + section)
                     .success(function (data) {
-                        var currentData;
-
-                        currentData = {
-                            projects: data.projects
-                        };
-
-                        deferred.resolve(currentData);
+                        deferred.resolve(data);
                     })
                     .error(function () {
 
@@ -325,16 +324,15 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio.schools.controller', []).
-        controller('schoolsController', ['$http', function ($http) {
+    angular.module('portfolio.schools.controller', [
+        'portfolio.service'
+    ]).
+        controller('schoolsController', function (schoolsData) {
             var vm = this;
-            $http.get('http://api.hayswim.com/schools')
-                .success(function (data) {
-                    console.log(data);
-                    vm.schools = data.schools;
-                    return vm;
-                });
-        }]);
+            vm.schools = schoolsData.schools;
+            vm.errorMessage = schoolsData.errorMessage;
+            console.log(schoolsData);
+        });
 }());
 
 /*global angular, $*/

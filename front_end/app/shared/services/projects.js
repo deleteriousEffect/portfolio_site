@@ -10,13 +10,7 @@
 
                 $http.get(API_ENDPOINT + '/' + section)
                     .success(function (data) {
-                        var currentData;
-
-                        currentData = {
-                            projects: data.projects
-                        };
-
-                        deferred.resolve(currentData);
+                        deferred.resolve(data);
                     })
                     .error(function () {
 
