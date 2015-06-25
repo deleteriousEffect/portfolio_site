@@ -1,14 +1,12 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio.technologies.controller', []).
-        controller('technologiesController', ['$http', function ($http) {
+    angular.module('portfolio.technologies.controller', [
+        'portfolio.service'
+    ])
+        .controller('technologiesController', function (technologiesData) {
             var vm = this;
-            $http.get('http://api.hayswim.com/technologies')
-                .success(function (data) {
-                    console.log(data);
-                    vm.technologies = data.technologies;
-                    return vm;
-                });
-        }]);
+            vm.technologies = technologiesData.technologies;
+            vm.errorMessage = technologiesData.errorMessage;
+        });
 }());

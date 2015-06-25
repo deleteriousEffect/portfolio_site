@@ -212,6 +212,11 @@
                     templateUrl: 'app/shared/technologies/templates/technologies.html',
                     controller: 'technologiesController',
                     controllerAs: 'technologiesArray',
+                    resolve: {
+                        technologiesData: function (portfolioService) {
+                            return portfolioService.getPortfolioData('technologies');
+                        }
+                    }
                 });
         }]);
 }());
@@ -300,8 +305,10 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio.jobs.controller', []).
-        controller('jobsController', function (jobsData) {
+    angular.module('portfolio.jobs.controller', [
+        'portfolio.service'
+    ])
+        .controller('jobsController', function (jobsData) {
             var vm = this;
             vm.jobs = jobsData.jobs;
             vm.errorMessage = jobsData.errorMessage;
@@ -318,7 +325,6 @@
             var vm = this;
             vm.projects = projectsData.projects;
             vm.error = projectsData.errorMessage;
-            console.log(projectsData.errorMessage);
         });
 }());
 
@@ -339,14 +345,12 @@
 /*global angular, $*/
 (function () {
     'use strict';
-    angular.module('portfolio.technologies.controller', []).
-        controller('technologiesController', ['$http', function ($http) {
+    angular.module('portfolio.technologies.controller', [
+        'portfolio.service'
+    ])
+        .controller('technologiesController', function (technologiesData) {
             var vm = this;
-            $http.get('http://api.hayswim.com/technologies')
-                .success(function (data) {
-                    console.log(data);
-                    vm.technologies = data.technologies;
-                    return vm;
-                });
-        }]);
+            vm.technologies = technologiesData.technologies;
+            vm.errorMessage = technologiesData.errorMessage;
+        });
 }());

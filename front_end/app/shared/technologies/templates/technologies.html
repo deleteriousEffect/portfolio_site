@@ -1,3 +1,4 @@
+<div class="alert alert-danger text-center" ng-if="technologiesArray.errorMessage">{{technologiesArray.errorMessage}}</div>
 <div ng-repeat="technology in technologiesArray.technologies">
   <div class="card card--technologies text-center clearfix col-sm-4">
     <i class="{{technology.icon}} fa-4x"></i>

@@ -8,6 +8,5 @@
             var vm = this;
             vm.projects = projectsData.projects;
             vm.error = projectsData.errorMessage;
-            console.log(projectsData.errorMessage);
         });
 }());

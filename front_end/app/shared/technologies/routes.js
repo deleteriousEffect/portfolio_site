@@ -11,6 +11,11 @@
                     templateUrl: 'app/shared/technologies/templates/technologies.html',
                     controller: 'technologiesController',
                     controllerAs: 'technologiesArray',
+                    resolve: {
+                        technologiesData: function (portfolioService) {
+                            return portfolioService.getPortfolioData('technologies');
+                        }
+                    }
                 });
         }]);
 }());
