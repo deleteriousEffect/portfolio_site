@@ -44,15 +44,17 @@ gulp.task('sass', function () {
 
 // Remove Unused CSS and minify.
 gulp.task('uncss', function () {
-    return gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css',
-                    'assets/styles/css/custom.css'])
+    return gulp.src(['assets/styles/css/custom.css'])
     .pipe(concat('main.min.css'))
     .pipe(minifyCss({
                   keepSpecialComments: 0
                  }))
     .pipe(uncss({
         html: ['app/**/*.html'],
-        ignore: ['.clearfix', 'main']
+        ignore: [
+            '.clearfix', 
+            'main',
+        ]
     }))
     .pipe(gulp.dest('dist'));
 });
