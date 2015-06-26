@@ -1,5 +1,5 @@
 <div class="alert alert-danger text-center" ng-if="schoolsArray.errorMessage">{{schoolsArray.errorMessage}}</div>
-<div ng-repeat="school in schoolsArray.schools">
+<div ng-repeat="school in schoolsArray.schools | orderBy:schoolsArray.startDateSort">
   <div class="card text-center col-md-4 col-md-offset-1">
     <h2>{{school.title}}</h2>
     <p>{{school.location}}</p>
