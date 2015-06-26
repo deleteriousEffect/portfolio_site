@@ -9,11 +9,16 @@
                     navbarName: 'Projects',
                     templateUrl: 'app/shared/projects/templates/projects.html',
                     controller: 'projectsController',
-                    controllerAs: 'projectsArray'
+                    controllerAs: 'projectsArray',
+                    resolve: {
+                        projectsData: function (portfolioService) {
+                            return portfolioService.getPortfolioData('projects');
+                        }
+                    }
+
                 })
                     .otherwise({
                     redirectTo: '/'
                 });
         });
 }());
-
