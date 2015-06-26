@@ -1,3 +1,4 @@
+'use strict';
 var gulp = require('gulp');
 
 var jslint = require('gulp-jslint'),
@@ -45,44 +46,44 @@ gulp.task('sass', function () {
 // Remove Unused CSS and minify.
 gulp.task('uncss', function () {
     return gulp.src(['assets/styles/css/custom.css'])
-    .pipe(concat('main.min.css'))
-    .pipe(minifyCss({
-                  keepSpecialComments: 0
-                 }))
-    .pipe(uncss({
-        html: ['app/**/*.html'],
-        ignore: [
-            '.clearfix', 
-            'main',
-        ]
-    }))
-    .pipe(gulp.dest('dist'));
+        .pipe(concat('main.min.css'))
+        .pipe(minifyCss({
+            keepSpecialComments: 0
+        }))
+        .pipe(uncss({
+            html: ['app/**/*.html'],
+            ignore: [
+                '.clearfix',
+                'main',
+            ]
+        }))
+        .pipe(gulp.dest('dist'));
 });
 
 // Minify Angular souce.
 gulp.task('ngmin', function () {
     return gulp.src('app/app.js')
-    .pipe(ngmin())
-    .pipe(uglify({mangle: false}))
-    .pipe(rename({extname: '.min.js'}))
-    .pipe(gulp.dest('dist/app'));
+        .pipe(ngmin())
+        .pipe(uglify({mangle: false}))
+        .pipe(rename({extname: '.min.js'}))
+        .pipe(gulp.dest('dist/app'));
 });
 
-// Minify HTML.
-gulp.task('minHTML', function() {
+    // Minify HTML.
+gulp.task('minHTML', function () {
     return gulp.src('index.html')
-    .pipe(replace(/(<script.*)\.js/g, '$1.min.js'))
-    .pipe(replace('<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">', ''))
-    .pipe(replace('assets/styles/css/custom.css', 'main.min.css'))
-    .pipe(minifyHTML())
-    .pipe(gulp.dest('dist'));
+        .pipe(replace(/(<script.*)\.js/g, '$1.min.js'))
+        .pipe(replace('<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">', ''))
+        .pipe(replace('assets/styles/css/custom.css', 'main.min.css'))
+        .pipe(minifyHTML())
+        .pipe(gulp.dest('dist'));
 });
 
 // Minify views.
-gulp.task('minViews', function() {
+gulp.task('minViews', function () {
     return gulp.src('app/**/*.html')
-    .pipe(minifyHTML())
-    .pipe(gulp.dest('dist/app'));
+        .pipe(minifyHTML())
+        .pipe(gulp.dest('dist/app'));
 });
 
 // Copy font-mfizz assets to dist.
@@ -97,15 +98,15 @@ gulp.task('mfizz', function () {
 });
 
 // Run test runner.
-gulp.task('test', function() {
+gulp.task('test', function () {
     return gulp.src('test/*.js')
-    .pipe(karma({
-        configFile: 'karma.conf.js',
-        action: 'run'
-    }))
-    .on('error', function (err) {
-        console.log(err);
-    });
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
+        }))
+        .on('error', function (err) {
+            console.log(err);
+        });
 });
 
 // Watch for changes.
