@@ -520,14 +520,11 @@ header {
 .card {
   margin-top: 25px;
   margin-bottom: 25px;
+  min-height: 250px;
 }
 
 .card__icon {
   padding: 20px;
-}
-
-.card--technologies {
-  height: 230px;
 }
 
 .header__blurb,

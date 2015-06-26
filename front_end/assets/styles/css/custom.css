@@ -16,13 +16,11 @@ header {
 .card {
   margin-top: 25px;
   margin-bottom: 25px;
-  color: #fafafa; }
+  color: #fafafa;
+  min-height: 250px; }
 
 .card__icon {
   padding: 20px; }
-
-.card--technologies {
-  height: 230px; }
 
 .header__profile-pic, .header__blurb {
   position: relative;
