@@ -14,9 +14,7 @@
                     }
                 }
             }
-            console.log(routesArray);
             vm.routes = routesArray;
             $scope.$route = $route;
-            console.log($scope.$route);
         }]);
 }());

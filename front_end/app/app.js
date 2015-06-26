@@ -246,7 +246,6 @@
             var vm = this;
             $http.get('http://api.hayswim.com/headers/1')
                 .success(function (data) {
-                    console.log(data);
                     var headerData = data.headers[0].header;
                     vm.title = headerData.title;
                     vm.subtitle = headerData.subtitle;
@@ -286,10 +285,8 @@
                     }
                 }
             }
-            console.log(routesArray);
             vm.routes = routesArray;
             $scope.$route = $route;
-            console.log($scope.$route);
         }]);
 }());
 
