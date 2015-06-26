@@ -5,10 +5,12 @@
     <div class="card__icon" ng-if="project.icon">
       <img ng-src="{{project.icon.src}}" alt="{{project.icon.alt}}">
     </div>
-    <p ng-if="project.github"><a ng-href="{{project.github}}">github</a></p>
-    <p ng-if="project.livePreview"><a ng-href="{{project.livePreview}}">Live Preview</a></p>
-    <p ng-if="project.languages">Languages: {{project.languages}}</p>
-    <p ng-if="project.description">{{project.description}}</p>
+    <div class="card__content">
+      <p ng-if="project.github"><a ng-href="{{project.github}}">github</a></p>
+      <p ng-if="project.livePreview"><a ng-href="{{project.livePreview}}">Live Preview</a></p>
+      <p ng-if="project.languages">Languages: {{project.languages}}</p>
+      <p ng-if="project.description">{{project.description}}</p>
+    </div>
     </ul>
   </div>
 </div>
