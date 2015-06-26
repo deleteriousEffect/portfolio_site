@@ -6,6 +6,7 @@
             var vm = this,
                 routeObject = {},
                 routesArray = [];
+            // Get all named routes besides the root route.
             for (routeObject in $route.routes) {
                 if ($route.routes.hasOwnProperty(routeObject)) {
                     if ($route.routes[routeObject].navbarName &&

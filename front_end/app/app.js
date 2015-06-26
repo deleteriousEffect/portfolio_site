@@ -43,6 +43,7 @@
 /*global angular, $*/
 (function () {
     'use strict';
+    // Retrieves api data for the specified resource.
     angular.module('portfolio.service', [])
         .service('portfolioService', ['$http', '$q', function ($http, $q) {
             var API_ENDPOINT = 'http://api.hayswim.com';
@@ -277,6 +278,7 @@
             var vm = this,
                 routeObject = {},
                 routesArray = [];
+            // Get all named routes besides the root route.
             for (routeObject in $route.routes) {
                 if ($route.routes.hasOwnProperty(routeObject)) {
                     if ($route.routes[routeObject].navbarName &&
@@ -344,6 +346,7 @@
             vm.schools = schoolsData.schools;
             vm.errorMessage = schoolsData.errorMessage;
 
+            // Sort dates numerically.
             vm.startDateSort = function (school) {
                 return new Date(school.start_date);
             };

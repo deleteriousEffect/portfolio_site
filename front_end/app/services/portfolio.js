@@ -1,6 +1,7 @@
 /*global angular, $*/
 (function () {
     'use strict';
+    // Retrieves api data for the specified resource.
     angular.module('portfolio.service', [])
         .service('portfolioService', ['$http', '$q', function ($http, $q) {
             var API_ENDPOINT = 'http://api.hayswim.com';
