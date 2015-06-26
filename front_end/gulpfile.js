@@ -18,7 +18,7 @@ gulp.task('lint', function () {
     return gulp.src(['app/**/*.js', '!app/app.js'])
         .pipe(jslint({
             brower: true,
-            maxlen: 80,
+            maxlen: 120,
             predef: ['angular', '$'],
             errorsOnly: false
         }))
