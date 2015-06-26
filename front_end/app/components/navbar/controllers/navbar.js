@@ -15,6 +15,8 @@
                     }
                 }
             }
+            // Add named routes to controller so that nabar 
+            // links can be dynamically loaded.
             vm.routes = routesArray;
             $scope.$route = $route;
         }]);
