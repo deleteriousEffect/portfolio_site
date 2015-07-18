@@ -55,6 +55,10 @@ gulp.task('uncss', function () {
             ignore: [
                 '.clearfix',
                 'main',
+                '.BSOD',
+                '.BSOD p:not(:first-child):not(:last-child)',
+                '.BSOD p:first-child',
+                '.BSOD p:last-child'
             ]
         }))
         .pipe(gulp.dest('dist'));

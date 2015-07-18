@@ -52,3 +52,28 @@ header {
 main {
   min-height: 400px;
 }
+
+.BSOD {
+  margin: 0 auto;
+  color: #fff;
+  background-color: #00f;
+  height: 600px;
+  width: 800px;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
+  line-height: 2em;
+}
+
+.BSOD p:first-child {
+  color: #00f;
+  background-color: #fff;
+  width: 120px;
+  margin: 0 auto;
+}
+
+.BSOD p:not(:first-child):not(:last-child) {
+  margin-left: 50px;
+}
