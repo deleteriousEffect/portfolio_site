@@ -1,7 +1,7 @@
-<div class="alert alert-danger text-center" ng-if="technologiesArray.errorMessage">{{technologiesArray.errorMessage}}</div>
-  <div class="card text-center clearfix col-sm-4" ng-repeat="technology in technologiesArray.technologies">
+<div class="alert alert-danger text-center" data-ng-if="technologiesArray.errorMessage">{{technologiesArray.errorMessage}}</div>
+  <div class="card text-center clearfix col-sm-4" data-ng-repeat="technology in technologiesArray.technologies">
     <i class="{{technology.icon}} fa-4x"></i>
     <h2>{{technology.title}}</h2>
-    <p ng-if="technology.frameworks">Frameworks: {{technology.frameworks}}</p>
-    <p ng-if="technology.projects">Projects: {{technology.projects}}</p>
+    <p data-ng-if="technology.frameworks">Frameworks: {{technology.frameworks}}</p>
+    <p data-ng-if="technology.projects">Projects: {{technology.projects}}</p>
 </div>
