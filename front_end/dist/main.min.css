@@ -4,11 +4,6 @@ header {
   color: #fafafa;
 }
 
-body,
-main {
-  background-color: #333;
-}
-
 header {
   height: 400px;
 }
@@ -56,6 +51,7 @@ header {
 
 main {
   min-height: 400px;
+  background-color: #333;
 }
 
 .BSOD {
@@ -79,4 +75,8 @@ main {
 
 .BSOD p:not(:first-child):not(:last-child) {
   margin-left: 50px;
+}
+
+body {
+  background-color: #333;
 }

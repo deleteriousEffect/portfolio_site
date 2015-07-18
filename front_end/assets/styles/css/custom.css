@@ -45,9 +45,6 @@ main {
   min-height: 400px;
   background-color: #333; }
 
-body {
-  background-color: #333; }
-
 noscript {
   display: block;
   height: 600px;
@@ -73,3 +70,6 @@ noscript {
     margin: 0 auto; }
   .BSOD p:not(:first-child):not(:last-child) {
     margin-left: 50px; }
+
+body {
+  background-color: #333; }
