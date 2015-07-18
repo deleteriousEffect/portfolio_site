@@ -1,17 +1,14 @@
 <div class="alert alert-danger text-center" ng-if="schoolsArray.errorMessage">{{schoolsArray.errorMessage}}</div>
-<div ng-repeat="school in schoolsArray.schools | orderBy:schoolsArray.startDateSort">
-  <div class="card text-center col-md-4 col-md-offset-1">
-    <h2>{{school.title}}</h2>
-    <p>{{school.location}}</p>
-    <p>
-      <span>{{school.start_date}}</span>
-      <span ng-if="school.end_date"> - {{school.end_date}}</span>
-    </p>
-    <p>
-      <span>{{school.degree}}: </span>
-      <span>{{school.major}}</span>
-    </p>
-    <p ng-if="school.minor">{{school.minor}}</p>
-    </ul>
-  </div>
+<div class="card text-center col-md-4 col-md-offset-1" ng-repeat="school in schoolsArray.schools | orderBy:schoolsArray.startDateSort">
+  <h2>{{school.title}}</h2>
+  <p>{{school.location}}</p>
+  <p>
+    <span>{{school.start_date}}</span>
+    <span ng-if="school.end_date"> - {{school.end_date}}</span>
+  </p>
+  <p>
+    <span>{{school.degree}}: </span>
+    <span>{{school.major}}</span>
+  </p>
+  <p ng-if="school.minor">{{school.minor}}</p>
 </div>
