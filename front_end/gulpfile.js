@@ -101,6 +101,12 @@ gulp.task('mfizz', function () {
         .pipe(gulp.dest('dist/assets/font-mfizz'));
 });
 
+// Copy images to dist.
+gulp.task('imgs', function () {
+    return gulp.src('assets/imgs/*')
+        .pipe(gulp.dest('dist/assets/imgs'));
+});
+
 // Run test runner.
 gulp.task('test', function () {
     return gulp.src('test/*.js')
@@ -120,6 +126,7 @@ gulp.task('watch', function () {
     gulp.watch('assets/styles/css/*.css', ['uncss']);
     gulp.watch('index.html', ['minHTML']);
     gulp.watch('app/**/*.html', ['minViews']);
+    gulp.watch('assets/imgs/*', ['imgs']);
 });
 
-gulp.task('default', ['sass', 'angular', 'ngmin', 'uncss', 'minHTML', 'minViews', 'lint', 'mfizz', 'watch']);
+gulp.task('default', ['sass', 'angular', 'ngmin', 'uncss', 'minHTML', 'minViews', 'lint', 'mfizz', 'imgs', 'watch']);
