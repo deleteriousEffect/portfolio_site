@@ -5,8 +5,8 @@
     <img data-ng-src="{{project.icon.src}}" alt="{{project.icon.alt}}" height="200" width ="200">
   </div>
   <div class="card__content">
-    <p data-ng-if="project.github"><a ng-href="{{project.github}}">github</a></p>
-    <p data-ng-if="project.livePreview"><a ng-href="{{project.livePreview}}">Live Preview</a></p>
+    <p data-ng-if="project.github"><a data-ng-href="{{project.github}}">github</a></p>
+    <p data-ng-if="project.livePreview"><a data-ng-href="{{project.livePreview}}">Live Preview</a></p>
     <p data-ng-if="project.languages">Languages: {{project.languages}}</p>
     <p data-ng-if="project.description">{{project.description}}</p>
   </div>
