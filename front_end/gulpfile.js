@@ -58,7 +58,8 @@ gulp.task('uncss', function () {
                 '.BSOD',
                 '.BSOD p:not(:first-child):not(:last-child)',
                 '.BSOD p:first-child',
-                '.BSOD p:last-child'
+                '.BSOD p:last-child',
+                'noscript'
             ]
         }))
         .pipe(gulp.dest('dist'));
