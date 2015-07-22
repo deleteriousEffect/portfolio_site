@@ -84,7 +84,6 @@
     'use strict';
     angular.module('portfolio.header', [
         'portfolio.header.directive',
-        'portfolio.header.controller'
     ]);
 }());
 
@@ -239,23 +238,6 @@
         });
 }());
 
-/*global angular, $*/
-(function () {
-    'use strict';
-    angular.module('portfolio.header.controller', []).
-        controller('headerController', ['$http', function ($http) {
-            var vm = this;
-            $http.get('http://api.hayswim.com/headers/1')
-                .success(function (data) {
-                    var headerData = data.headers[0].header;
-                    vm.title = headerData.title;
-                    vm.subtitle = headerData.subtitle;
-                    vm.iconUrl = headerData['profile picture'].src;
-                    vm.altText = headerData['profile picture'].alt;
-                });
-        }]);
-}());
-
 /*global angular*/
 (function () {
     'use strict';
@@ -264,8 +246,6 @@
             return {
                 restrict: 'E',
                 templateUrl: 'app/components/header/templates/header.html',
-                controller: 'headerController',
-                controllerAs: 'header'
             };
         });
 }());
@@ -317,6 +297,7 @@
         .controller('jobsController', function (jobsData) {
             var vm = this;
             vm.jobs = jobsData.jobs;
+            vm.jobs.responcibility = vm.jobs.responcibility.split("\n");
             vm.errorMessage = jobsData.errorMessage;
             vm.startDateSort = function (job) {
                 return new Date(job.start_date);

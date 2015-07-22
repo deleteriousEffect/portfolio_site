@@ -6,8 +6,6 @@
             return {
                 restrict: 'E',
                 templateUrl: 'app/components/header/templates/header.html',
-                controller: 'headerController',
-                controllerAs: 'header'
             };
         });
 }());
