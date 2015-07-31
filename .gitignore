@@ -40,3 +40,6 @@ api/themes
 
 # Ignore node modules
 front_end/node_modules*
+
+# Ignore API now that it's live
+api/*
